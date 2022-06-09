@@ -15,6 +15,7 @@ df_new = df2[["name", "region", "city", "price", "cuisine", "url"]]
 Region = st.selectbox(
         "Region", df_new["region"].value_counts().index
     )
+df_selection = df_new[(df_new['region'] == Region)]
 Cuisine = st.selectbox(
         "Cuisine", df_new["cuisine"].value_counts().index
     )
