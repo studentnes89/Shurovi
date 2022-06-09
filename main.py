@@ -36,8 +36,8 @@ df_selection
 
 
 search0 = df_selection['city'][0:1].values[0]
-##list = search0.split(";")
-##search0 = list[0]
+list = search0.split(",")
+search0 = list[0]
 search0 = wikipedia.search(search0)[0]
 st.write(search0)
 search0 = search0.replace(" ", "_")
