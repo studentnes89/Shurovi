@@ -15,7 +15,7 @@ df_new = df2[["region", "name", "city", "price", "cuisine"]]
 Region = st.selectbox(
         "Region", df_new["region"].value_counts().index
     )
-df_selection = df_new[lambda x: (x["region"] == Region]
+df_selection = df_new[lambda x: x["region"] == Region]
 df_selection_sort = df_selection.sort_values('price', ascending = TRUE)
 df_selsction_sort
                                  
