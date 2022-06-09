@@ -15,15 +15,13 @@ df_new = df2[["region", "name", "city", "price", "cuisine"]]
 Region = st.selectbox(
         "Region", df_new["region"].value_counts().index
     )
-df_selection = df_new[lambda x: x["region"] == Region]
-df_selection_sort = df_selection.sort_values('price', ascending = TRUE)
-df_selection_sort
-
-##Выбираем кухню
 Cuisine = st.selectbox(
         "Cuisine", df_new["cuisine"].value_counts().index
     )
-df_selection2 = df_new[lambda x: x["cuisine"] == Cuisine]
-df_selection2
+df_selection = df_new[lambda x: x["region"] == Region and x["cuisine"] == Cuisine]
+##df_selection_sort = df_selection.sort_values('price', ascending = TRUE)
+df_selection
+
+
 
 
