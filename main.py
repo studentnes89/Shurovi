@@ -20,12 +20,11 @@ Cuisine = st.selectbox(
     )
 df_selection = df_new[(df_new['region'] == Region) & (df_new['cuisine'] == Cuisine)]
 
-df_selection
-
 selected_class = st.radio("Select Class", df_selection['price'].unique())
 st.write("Selected Class:", selected_class)
 st.write("Selected Class Type:", type(selected_class))
 df_selection = df_selection[df_selection["price"] ==selected_class]
+df_selection
 
 ##df_selection_sort = df_selection.sort_values('price', ascending = TRUE)
 ##df_selsction_sort
