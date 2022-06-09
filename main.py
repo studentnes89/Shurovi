@@ -31,7 +31,7 @@ df_selection
                                  
                                  
                                 
-##Cuisine = st.selectbox(
+###Cuisine = st.selectbox(
         ##"Cuisine", df_new["cuisine"].value_counts().index
     ##)
 ##df_selection = df_new[lambda x: (x["region"] == Region and x["cuisine"] == Cuisine)]
