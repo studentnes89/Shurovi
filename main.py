@@ -6,10 +6,12 @@ import matplotlib.pyplot as plt
 
 
 df= pd.read_csv("data_one.csv")
-df=df.dropna()
+df2=df.dropna()
+df2['price'] = df2['price'].str.replace('$','a')
+df_sort = df2.sort_values('price', ascending = TRUE)
 
 ##Выбираем регион
-df_new = df[["region", "name", "city", "price", "cuisine"]]
+df_new = df_sort[["region", "name", "city", "price", "cuisine"]]
 Region = st.selectbox(
         "Region", df_new["region"].value_counts().index
     )
@@ -22,3 +24,5 @@ Cuisine = st.selectbox(
     )
 df_selection2 = df_new[lambda x: x["cuisine"] == Cuisine]
 df_selection2
+
+
