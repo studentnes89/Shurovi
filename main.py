@@ -16,8 +16,8 @@ Region = st.selectbox(
         "Region", df_new["region"].value_counts().index
     )
 df_selection = df_new[lambda x: x["region"] == Region]
-df_selection_sort = df_selection.sort_values('price', ascending = TRUE)
-df_selection_sort[0:5]
+##df_selection_sort = df_selection.sort_values('price', ascending = TRUE)
+df_selection[0:5]
 
 ##Выбираем кухню
 Cuisine = st.selectbox(
