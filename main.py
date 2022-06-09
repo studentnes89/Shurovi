@@ -34,7 +34,11 @@ df_selection
 
 
 ##Сортировать не раб
-
+selected_class = st.radio("Select Class", df_selection['name'].unique())
+st.write("Selected Class:", selected_class)
+st.write("Selected Class Type:", type(selected_class))
+df_selection = df_selection[df_selection["name"] ==selected_class]
+df_selection
 
 search0 = df_selection['city'][0:1].values[0]
 ##list = search0.split(",")
