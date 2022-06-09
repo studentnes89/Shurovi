@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 
 df= pd.read_csv("data_one.csv")
+df.dropna()
 
 ##Выбираем регион
 df_new = df[["region", "name", "city", "price", "cuisine"]]
