@@ -31,10 +31,10 @@ df_selection
 ##df_selection_sort = df_selection.sort_values('price', ascending = TRUE)
 ##df_selsction_sort
 
-##r = df_selection["url"]
-##page = BeautifulSoup(r.text, 'html.parser')
 
 ##Сортировать не раб
+
+
 
 
 
