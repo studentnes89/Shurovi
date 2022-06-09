@@ -11,7 +11,7 @@ df2['price'] = df2['price'].str.replace('$','1')
 
 
 ##Выбираем регион
-df_new = df2[["region", "name", "city", "price", "cuisine", "url"]]
+df_new = df2[["name", "region", "city", "price", "cuisine", "url"]]
 Region = st.selectbox(
         "Region", df_new["region"].value_counts().index
     )
