@@ -3,7 +3,8 @@ import wikipedia
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from bs4 import BeautifulSoup
+import requests
 
 df= pd.read_csv("data_one.csv")
 df2=df.dropna()
