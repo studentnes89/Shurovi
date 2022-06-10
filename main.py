@@ -109,7 +109,6 @@ pizza_df['extra_mushrooms'] = pizza_df['extra_mushrooms'].str.replace("yes", "1"
 pizza_df['extra_mushrooms'] = pizza_df['extra_mushrooms'].str.replace('no', "0")
 pizza_df['company'] = pd.to_numeric(pizza_df['company'])
 pizza_df['price'] = pd.to_numeric(pizza_df['price'])
-pizza_df['diameter'] = pd.to_numeric(pizza_df['diameter'])
 pizza_df['extra_sauce'] = pd.to_numeric(pizza_df['extra_sauce'])
 pizza_df['extra_cheese'] = pd.to_numeric(pizza_df['extra_cheese'])
 pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
