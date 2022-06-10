@@ -5,8 +5,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 import requests
-from pywaffle import Waffle
-##вафля
+from pywaffle import Waffle 
+## вафля
 
 df= pd.read_csv("data_one.csv")
 df2=df.dropna()
