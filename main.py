@@ -75,7 +75,6 @@ for link in t("img"):
         ind = 1
     if ind == 1:
         break
-st.write("https:"+ itog)
 url = "https:"+ itog
 st.image(url)
 
