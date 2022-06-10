@@ -9,12 +9,10 @@ from pywaffle import Waffle
 
 ## вафля
 
-df= pd.read_csv("data_one.csv")
-df2=df.dropna()
-df2['price'] = df2['price'].str.replace('$','1')
-df_new = df2[["name", "region", "city", "price", "cuisine", "url"]]
+df= pd.read_csv("df_23.csv")
 
-df_vaf = df_new.groupby('price').size().reset_index(name='counts')
+
+df_vaf = df.groupby('price').size().reset_index(name='counts')
 n_categories = df_vaf.shape[0]
 colors = [plt.cm.inferno_r(i/float(n_categories)) for i in range(n_categories)]
 
@@ -38,31 +36,30 @@ st.pyplot(figure)
 ##Выбираем регион
 
 Region = st.selectbox(
-        "Region", df_new["region"].value_counts().index
+        "Region", df["region"].value_counts().index
     )
-df_selection = df_new[(df_new['region'] == Region)]
+df_selection = df[(df['region'] == Region)]
 
 Cuisine = st.selectbox(
         "Cuisine", df_selection["cuisine"].value_counts().index
     )
-df_selection = df_new[(df_new['region'] == Region) & (df_new['cuisine'] == Cuisine)]
+df_selection = df[(df['region'] == Region) & (df['cuisine'] == Cuisine)]
 
 selected_class = st.radio("Select Class", df_selection['price'].unique())
 st.write("Selected Class:", selected_class)
 st.write("Selected Class Type:", type(selected_class))
 df_selection = df_selection[df_selection["price"] ==selected_class]
-df_selection
+df_show = df_selection(["name", "region", "city", "price", "cuisine", "url"])
+df_show
 
-##df_selection_sort = df_selection.sort_values('price', ascending = TRUE)
-##df_selsction_sort
-
-
-##Сортировать не раб
 selected_class = st.radio("Select Class", df_selection['name'].unique())
 st.write("Selected Class:", selected_class)
 st.write("Selected Class Type:", type(selected_class))
 df_selection = df_selection[df_selection["name"] ==selected_class]
-df_selection
+df_show = df_selection(["name", "region", "city", "price", "cuisine", "url"])
+df_show
+discrp=df_selection['description'][0:1].values[0]
+discrp
 
 cit = df_selection['city'][0:1].values[0]
 cit = wikipedia.search(cit)[0]
