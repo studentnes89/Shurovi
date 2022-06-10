@@ -15,17 +15,17 @@ df_new = df2[["name", "region", "city", "price", "cuisine", "url"]]
 df_vaf = df_new.groupby(['price']).size().reset_index(name='counts')
 price_cat = df_vaf.shape[0]
 graf = plt.figure(
-    FigureClass = Waffle,
-    plots = {
-        111: {
-            'values': df_vaf['counts'],
-            'labels': ["{0}".format(n[0], n[1]) for n in df_vaf[['price', 'counts']].itertuples()],
-            'legend': {'loc': 'upper left', 'bbox_to_anchor': (1.1, 1.2), 'fontsize': 22},
-        },
+FigureClass = Waffle,
+plots = {
+    111: {
+        'values': df_vaf['counts'],
+        'labels': ["{0}".format(n[0], n[1]) for n in df_vaf[['price', 'counts']].itertuples()],
+        'legend': {'loc': 'upper left', 'bbox_to_anchor': (1.1, 1.2), 'fontsize': 22},
     },
-    rows = 10,
-    colors = colors,
-    figsize = (20, 15)
+},
+rows = 10,
+colors = colors,
+figsize = (20, 15)
 )
 st.pyplot(graf)
 
