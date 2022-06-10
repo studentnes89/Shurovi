@@ -21,7 +21,7 @@ colors = [plt.cm.inferno_r(i/float(n_categories)) for i in range(n_categories)]
 figure = plt.figure(
     FigureClass=Waffle,
     plots={
-        '111': {
+        111: {
             'values': df_vaf['counts'],
             'labels': ["{0} ({1})".format(n[0], n[1]) for n in df_vaf[['price', 'counts']].itertuples()],
             'legend': {'loc': 'upper left', 'bbox_to_anchor': (1.05, 1), 'fontsize': 12},
