@@ -49,14 +49,14 @@ selected_class = st.radio("Select Class", df_selection['price'].unique())
 st.write("Selected Class:", selected_class)
 st.write("Selected Class Type:", type(selected_class))
 df_selection = df_selection[df_selection["price"] ==selected_class]
-df_show = df_selection(["name", "region", "city", "price", "cuisine", "url"])
+df_show = df_selection[["name", "region", "city", "price", "cuisine", "url"]]
 df_show
 
 selected_class = st.radio("Select Class", df_selection['name'].unique())
 st.write("Selected Class:", selected_class)
 st.write("Selected Class Type:", type(selected_class))
 df_selection = df_selection[df_selection["name"] ==selected_class]
-df_show = df_selection(["name", "region", "city", "price", "cuisine", "url"])
+df_show = df_selection[["name", "region", "city", "price", "cuisine", "url"]]
 df_show
 discrp=df_selection['description'][0:1].values[0]
 discrp
