@@ -8,7 +8,7 @@ import requests
 from pywaffle import Waffle 
 import cv2
 
-## вафля
+### вафля
 
 df= pd.read_csv("data_one.csv")
 df2=df.dropna()
