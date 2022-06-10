@@ -14,11 +14,10 @@ df2['price'] = df2['price'].str.replace('$','1')
 df_new = df2[["name", "region", "city", "price", "cuisine", "url"]]
 
 df_vaf = df_new.groupby('price').size().reset_index(name='counts')
-df_vaf
 n_categories = df.shape[0]
 colors = [plt.cm.inferno_r(i/float(n_categories)) for i in range(n_categories)]
 
-fig = plt.figure(
+figure = plt.figure(
     FigureClass=Waffle,
     plots={
         '111': {
@@ -32,7 +31,7 @@ fig = plt.figure(
     colors=colors,
     figsize=(16, 9)
 )
-st.pyplot(fig)
+st.pyplot(figure)
 
 
 ##Выбираем регион
