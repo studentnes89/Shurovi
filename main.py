@@ -40,23 +40,21 @@ st.write("Selected Class Type:", type(selected_class))
 df_selection = df_selection[df_selection["name"] ==selected_class]
 df_selection
 
-search0 = df_selection['city'][0:1].values[0]
-##list = search0.split(",")
-##search0 = list[0]
-search0 = wikipedia.search(search0)[0]
-st.write(search0)
-search0 = search0.replace(" ", "_")
-url = 'https://en.wikipedia.org/wiki/' + search0
-r = requests.get(url)
-text = BeautifulSoup(r.text, 'html.parser')
-for link in text("img"):
+cit = df_selection['city'][0:1].values[0]
+cit = wikipedia.search(cit)[0]
+st.write(cit)
+cit = cit.replace(" ", "_")
+ssilka = 'https://en.wikipedia.org/wiki/' + cit
+r = requests.get(ssilka)
+t = BeautifulSoup(r.text, 'html.parser')
+for link in t("img"):
     a = link.get('src')
-    if((a is None) == False):
-        ans = a
+    if (a is None) == False:
+        itog = a
         ind = 1
-    if(ind == 1):
+    if ind == 1:
         break
-st.write("https:"+ ans)
+st.write("https:"+ itog)
 
 
 
