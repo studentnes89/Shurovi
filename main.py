@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 import requests
 from pywaffle import Waffle 
-from PIL import Image
+
 ## вафля
 
 df= pd.read_csv("data_one.csv")
@@ -84,7 +84,6 @@ r= requests.get(url)
 out = open("...\img.jpg", 'wb')
 out.write(r.content())
 out.close()
-image=Image.open("...\img.jpg")
-image.show()
+
 
 
