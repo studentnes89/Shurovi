@@ -7,4 +7,4 @@ bs4
 requests
 wikipedia
 pywaffle==0.6.4
-PIL
+PIL==5.1.0
