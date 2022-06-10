@@ -78,7 +78,10 @@ for link in t("img"):
     if ind == 1:
         break
 st.write("https:"+ itog)
-
-
+url = "https:"+ itog
+r= requests.get(url)
+out = open("...\img.jpg", 'wb')
+out.write(r.read())
+out.close()
 
 
