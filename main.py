@@ -6,13 +6,32 @@ import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 import requests
 
+##вафля
+
 df= pd.read_csv("data_one.csv")
 df2=df.dropna()
 df2['price'] = df2['price'].str.replace('$','1')
+df_new = df2[["name", "region", "city", "price", "cuisine", "url"]]
+df_vaf = df_new.groupby(['price']).size().reset_index(name='counts')
+price_cat = df_vaf.shape[0]
+graf = plt.figure(
+    FigureClass = Waffle,
+    plots = {
+        111: {
+            'values': df_vaf['counts'],
+            'labels': ["{0}".format(n[0], n[1]) for n in df_vaf[['price', 'counts']].itertuples()],
+            'legend': {'loc': 'upper left', 'bbox_to_anchor': (1.1, 1.2), 'fontsize': 22},
+        },
+    },
+    rows = 10,
+    colors = colors,
+    figsize = (20, 15)
+)
+st.pyplot(graf)
 
 
 ##Выбираем регион
-df_new = df2[["name", "region", "city", "price", "cuisine", "url"]]
+
 Region = st.selectbox(
         "Region", df_new["region"].value_counts().index
     )
