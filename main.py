@@ -10,6 +10,7 @@ import geopandas as gpd
 import folium
 import json
 from geopandas.tools import geocode
+from streamlit_folium import st_folium
 
 ## вафля
 
