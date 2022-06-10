@@ -25,7 +25,7 @@ figure = plt.figure(
             'values': df_vaf['counts'],
             'labels': ["{0} ({1})".format(n[0], n[1]) for n in df_vaf[['price', 'counts']].itertuples()],
             'legend': {'loc': 'upper left', 'bbox_to_anchor': (1.05, 1), 'fontsize': 12},
-            'title': {'label': '# Vehicles by Class', 'loc': 'center', 'fontsize':18}
+            'title': {'label': '# Распределение цуновых категорий у ресторанов Мишлен', 'loc': 'center', 'fontsize':18}
         },
     },
     rows=7,
