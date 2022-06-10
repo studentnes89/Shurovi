@@ -7,4 +7,3 @@ bs4
 requests
 wikipedia
 pywaffle==0.6.4
-cv2==3.0.0
