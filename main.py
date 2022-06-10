@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 import requests
 from pywaffle import Waffle 
 from PIL import Image, ImageDraw
-## вафля
+### вафля
 
 df= pd.read_csv("data_one.csv")
 df2=df.dropna()
