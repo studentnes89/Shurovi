@@ -81,7 +81,7 @@ st.write("https:"+ itog)
 url = "https:"+ itog
 r= requests.get(url)
 out = open("...\img.jpg", 'wb')
-out.write(r.read())
+out.write(r.content())
 out.close()
 
 
