@@ -14,7 +14,6 @@ df2['price'] = df2['price'].str.replace('$','1')
 df_new = df2[["name", "region", "city", "price", "cuisine", "url"]]
 
 df_vaf = df_new.groupby('price').size().reset_index(name='counts')
-df_vaf
 n_categories = df_vaf.shape[0]
 colors = [plt.cm.inferno_r(i/float(n_categories)) for i in range(n_categories)]
 
@@ -25,7 +24,7 @@ figure = plt.figure(
             'values': df_vaf['counts'],
             'labels': ["{0} ({1})".format(n[0], n[1]) for n in df_vaf[['price', 'counts']].itertuples()],
             'legend': {'loc': 'upper left', 'bbox_to_anchor': (1.05, 1), 'fontsize': 12},
-            'title': {'label': '# Распределение цуновых категорий у ресторанов Мишлен', 'loc': 'center', 'fontsize':18}
+            'title': {'label': ' Распределение ценовых категорий у ресторанов Мишлен', 'loc': 'center', 'fontsize':18}
         },
     },
     rows=7,
