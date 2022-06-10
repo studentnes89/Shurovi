@@ -15,7 +15,7 @@ df_new = df2[["name", "region", "city", "price", "cuisine", "url"]]
 
 df_vaf = df_new.groupby('price').size().reset_index(name='counts')
 df_vaf
-n_categories = df.shape[0]
+n_categories = df_vaf.shape[0]
 colors = [plt.cm.inferno_r(i/float(n_categories)) for i in range(n_categories)]
 
 figure = plt.figure(
