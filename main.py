@@ -81,3 +81,35 @@ for link in t("img"):
 st.write("https:"+ itog)
 url = "https:"+ itog
 st.image(url)
+
+
+
+pizza_df=pd.read_csv("pizza_df.csv")
+pizza_df['company'] = pizza_df['company'].str.replace('A', "5")
+pizza_df['company'] = pizza_df['company'].str.replace('B', "4")
+pizza_df['company'] = pizza_df['company'].str.replace('C', "3")
+pizza_df['company'] = pizza_df['company'].str.replace('D', "2")
+pizza_df['company'] = pizza_df['company'].str.replace('E', "1")
+pizza_df = pizza_df.rename (columns= {'price_rupiah': 'price'})
+for i in range(len(pizza_df.index)):
+    yacheika=pizza_df['price'][i:i+1].values[0]
+    length=len(yacheika)
+    new_yacheika=yacheika[2:(length-4)]
+    pizza_df.loc[i,'price'] = new_yacheika
+for i in range(len(pizza_df.index)):
+    yach=pizza_df['diameter'][i:i+1].values[0]
+    ln=len(yach)
+    new_yach=yach[0:(ln-5)]
+    pizza_df.loc[i,'diameter'] = new_yach
+pizza_df['extra_sauce'] = pizza_df['extra_sauce'].str.replace('yes', "1")
+pizza_df['extra_sauce'] = pizza_df['extra_sauce'].str.replace('no', "0")
+pizza_df['extra_cheese'] = pizza_df['extra_cheese'].str.replace('yes', "1")
+pizza_df['extra_cheese'] = pizza_df['extra_cheese'].str.replace('no', "0")
+pizza_df['extra_mushrooms'] = pizza_df['extra_mushrooms'].str.replace("yes", "1")
+pizza_df['extra_mushrooms'] = pizza_df['extra_mushrooms'].str.replace('no', "0")
+pizza_df['company'] = pd.to_numeric(pizza_df['company'])
+pizza_df['price'] = pd.to_numeric(pizza_df['price'])
+pizza_df['diameter'] = pd.to_numeric(pizza_df['diameter'])
+pizza_df['extra_sauce'] = pd.to_numeric(pizza_df['extra_sauce'])
+pizza_df['extra_cheese'] = pd.to_numeric(pizza_df['extra_cheese'])
+pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
