@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 import requests
 from pywaffle import Waffle 
-import cv2
 
 ## вафля
 
