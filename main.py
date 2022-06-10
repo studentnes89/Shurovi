@@ -113,3 +113,4 @@ pizza_df['diameter'] = pd.to_numeric(pizza_df['diameter'])
 pizza_df['extra_sauce'] = pd.to_numeric(pizza_df['extra_sauce'])
 pizza_df['extra_cheese'] = pd.to_numeric(pizza_df['extra_cheese'])
 pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
+pizza_df
