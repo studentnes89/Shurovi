@@ -80,4 +80,4 @@ for link in t("img"):
         break
 st.write("https:"+ itog)
 url = "https:"+ itog
-st.image(url_pic)
+st.image(url)
