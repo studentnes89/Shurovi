@@ -99,7 +99,7 @@ st.image(url)
 lat = df_selection['latitude']
 lon = df_selection['longitude']
 elevation = df_selection['name']
-map = folium.Map(location=[37.296933,-121.9574983], zoom_start = 5)
+map = folium.Map(location=[37.296933,-121.9574983], zoom_start = 3)
 
 for lat, lon, elevation in zip(lat, lon, elevation):
     folium.Marker(location=[lat, lon], popup=str(elevation), icon=folium.Icon(color = 'gray')).add_to(map)
