@@ -136,6 +136,7 @@ pizza_df['extra_cheese'] = pd.to_numeric(pizza_df['extra_cheese'])
 pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
 pizza_df
 
+pizza_df.corr()
 fig = plt.figure(figsize=(50, 20), dpi= 80)
 sns.heatmap(pizza_df.corr(), xticklabels=pizza_df.corr().columns, yticklabels=pizza_df.corr().columns, cmap='RdYlGn', center=0, annot=True)
 plt.title('Correlogram of pizza', fontsize=60)
