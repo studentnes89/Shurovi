@@ -97,19 +97,18 @@ st.image(url)
 #st_data = st_folium(mapit, width = 725)
 #st_data
 ###Карта
-
-def color_change(name):
-    name_2 = df_selection_2['name']
-    if(name.any()==name_2):
-        return('pink')
-    else:
-        return('gray')
 lat = df_selection['latitude']
 lon = df_selection['longitude']
 name = df_selection['name']
 name_2 = df_selection_2['name']
 lat_2 = df_selection_2['latitude']
 lon_2 = df_selection_2['longitude']
+def color_change(name):
+    if(name==name_2):
+        return('pink')
+    else:
+        return('gray')
+
 map = folium.Map(location=[lat_2, lon_2], zoom_start = 5)
 folium.TileLayer('cartodbpositron').add_to(map)
 for lat, lon, name in zip(lat, lon, name):
