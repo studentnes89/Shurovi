@@ -179,4 +179,4 @@ model = LinearRegression()
 model.fit(pizza_df.drop(columns=["price"]), pizza_df["price"])
 price = model.intercept_ + Company_raiting*model.coef_[0] + diameter*model.coef_[1] + extra_sauce*model.coef_[2] +extra_cheese*model.coef_[3] + extra_mushrooms*model.coef_[4]
 
-st.write(price)
+st.write("Price:", price)
