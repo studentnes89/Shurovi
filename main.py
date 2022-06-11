@@ -107,9 +107,9 @@ lon_2 = df_selection_2['longitude']
 map = folium.Map(location=[lat_2, lon_2], zoom_start = 9)
 folium.TileLayer('cartodbpositron').add_to(map)
 for lat, lon, name in zip(lat, lon, name):
-    folium.Marker(location=[lat, lon], popup=str(name), icon=folium.Icon(color = 'gray' )).add_to(map)
+    folium.Marker(location=[lat, lon], tooltip=str(name), icon=folium.Icon(color = 'gray' )).add_to(map)
 for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
-    folium.Marker(location=[lat_2, lon_2], popup=str(name_2), icon=folium.Icon(color = 'pink' ), tooltip = "ресторан").add_to(map)
+    folium.Marker(location=[lat_2, lon_2], tooltip=str(name_2), icon=folium.Icon(color = 'pink' )).add_to(map)
 
 st_data=st_folium(map, width=900)
 
