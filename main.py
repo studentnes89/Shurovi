@@ -99,6 +99,7 @@ st.image(url)
 ###Карта
 
 def color_change(name):
+    name_2 = df_selection_2['name']
     if(name==name_2):
         return('pink')
     else:
