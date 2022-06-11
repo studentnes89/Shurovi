@@ -54,15 +54,15 @@ Cuisine = st.selectbox(
     )
 df_selection = df[(df['region'] == Region) & (df['cuisine'] == Cuisine)]
 
-average_check = st.radio("Select Class", df_selection['price'].unique())
+average_check = st.radio("Select option", df_selection['price'].unique())
 st.write("Average check:", average_check)
 df_selection = df_selection[df_selection["price"] ==average_check]
 df_show = df_selection[["name", "region", "city", "price", "cuisine", "url"]]
 df_show
 
-selected_class = st.radio("Select Class", df_selection['name'].unique())
-st.write("Selected Class:", selected_class)
-df_selection = df_selection[df_selection["name"] ==selected_class]
+restaurant = st.radio("Select option", df_selection['name'].unique())
+st.write("Restaurant:", restaurant)
+df_selection = df_selection[df_selection["name"] ==restaurant]
 df_show = df_selection[["name", "region", "city", "price", "cuisine", "url"]]
 df_show
 discrp=df_selection['description'][0:1].values[0]
@@ -148,7 +148,7 @@ pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
 pizza_df=pizza_df[["company", "price", "diameter", "extra_sauce", "extra_cheese", "extra_mushrooms"]]
 pizza_df["price"] = pizza_df.price.mul(3)
 
-Company = st.selectbox(
+Company raiting = st.selectbox(
         "Company", ("5", "4", "3", "2", "1")
     )
 
@@ -157,7 +157,20 @@ diameter = Diameter[0].number_input("Diameter", value = 20)
 
 Extra_sauce = st.expander("Optional Configurations", True)
 extra_sauce = Extra_sauce.slider(
-    "Minimum Fare",
+    "Extra Sauce",
+    min_value = 0.0,
+    max_value = 10.0
+)
+Extra_cheese = st.expander("Optional Configurations", True)
+extra_cheese = Extra_cheese.slider(
+    "Extra cheese",
+    min_value = 0.0,
+    max_value = 10.0
+)
+
+Extra_mushrooms = st.expander("Optional Configurations", True)
+extra_mushrooms = Extra_mushrooms.slider(
+    "Extra mushrooms",
     min_value = 0.0,
     max_value = 10.0
 )
