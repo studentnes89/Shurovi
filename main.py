@@ -141,6 +141,10 @@ pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
 #plt.yticks(fontsize=15)
 #st.pyplot(fig)
 
-sns.set_style("white")
-gridobj = sns.lmplot(x="diameter", y="price", data=pizza_df)
-st.pyplot(gridobj)
+#sns.set_style("white")
+#gridobj = sns.lmplot(x="diameter", y="price", data=pizza_df)
+#st.pyplot(gridobj)
+
+pizza_df=pizza_df[["company", "price", "diameter", "extra_sauce", "extra_cheese", "extra_mushrooms"]]
+pizza_df["price"] = pizza_df.price.mul(3)
+pizza_df
