@@ -11,4 +11,4 @@ geopy
 sklearn
 LinearRegression
 regex
-sqlite
+SQLite
