@@ -149,7 +149,34 @@ pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
 
 pizza_df=pizza_df[["company", "price", "diameter", "extra_sauce", "extra_cheese", "extra_mushrooms"]]
 pizza_df["price"] = pizza_df.price.mul(3)
+
+Company = st.selectbox(
+        "Company", pizza_df["company"].value_counts().index
+    )
+df_selection = pizza_df[(pizza_df['company'] == Company)]
+
+Diameter = st.selectbox(
+        "Diameter", df_selection["diameter"].value_counts().index
+    )
+df_selection = pizza_df[(pizza_df['diameter'] == Diameter) & (pizza_df['company'] == Company)]
+
+selected_class = st.radio("Select Class", df_selection['extra_sauce'].unique())
+st.write("Selected Class:", selected_class)
+st.write("Selected Class Type:", type(selected_class))
+df_selection = df_selection[df_selection["extra_sauce"] ==selected_class]
+
+selected_class = st.radio("Select Class", df_selection['extra_cheese'].unique())
+st.write("Selected Class:", selected_class)
+st.write("Selected Class Type:", type(selected_class))
+df_selection = df_selection[df_selection["extra_cheese"] ==selected_class]
+
+selected_class = st.radio("Select Class", df_selection['extra_mushrooms'].unique())
+st.write("Selected Class:", selected_class)
+st.write("Selected Class Type:", type(selected_class))
+df_selection = df_selection[df_selection["extra_mushrooms"] ==selected_class]
+
 model = LinearRegression()
 model.fit(pizza_df.drop(columns=["price"]), pizza_df["price"])
-price = model.intercept_ + 5*model.coef_[0] + 10*model.coef_[1] + 1*model.coef_[2] +0*model.coef_[3] + 0*model.coef_[4]
+price = model.intercept_ + df_selection[0]*model.coef_[0] + df_selection[2]*model.coef_[1] + df_selection[3]*model.coef_[2] +df_selection[4]*model.coef_[3] + df_selection[5]*model.coef_[4]
+
 st.write(price)
