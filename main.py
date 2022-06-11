@@ -141,7 +141,7 @@ pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
 #st.pyplot(fig)
 
 sns.set_style("white")
-gridobj = sns.lmplot(x="diameter", y="price", hue="cyl", data=pizza_df, 
+gridobj = sns.lmplot(x="diameter", y="price", data=pizza_df, 
                      height=7, aspect=1.6, robust=True, palette='tab10', 
                      scatter_kws=dict(s=60, linewidths=.7, edgecolors='black'))
 plt.show()
