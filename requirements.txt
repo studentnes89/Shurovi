@@ -10,4 +10,4 @@ pywaffle==0.6.4
 geopy
 sklearn
 LinearRegression
-
+regex
