@@ -149,4 +149,7 @@ pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
 
 pizza_df=pizza_df[["company", "price", "diameter", "extra_sauce", "extra_cheese", "extra_mushrooms"]]
 pizza_df["price"] = pizza_df.price.mul(3)
-pizza_df
+model = LinearRegression()
+model.fit(pizza_df.drop(columns=["price"]), pizza_df["price"])
+price = model.intercept_ + 5*model.coef_[0] + 10*model.coef_[1] + 1*model.coef_[2] +0*model.coef_[3] + 0*model.coef_[4]
+st.write(price)
