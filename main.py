@@ -91,7 +91,7 @@ st.image(url)
 
 #mapit = folium.Map( location=[0, 0], zoom_start=1 ) 
 #for lat , lon in zip(data.latitude , data.longitude): 
-        folium.Marker( location=[ lat,lon ], fill_color='#43d9de', radius=8 ).add_to( mapit ) 
+#        folium.Marker( location=[ lat,lon ], fill_color='#43d9de', radius=8 ).add_to( mapit ) 
 #st_data = st_folium(mapit, width = 725)
 #st_data
 ###Карта
