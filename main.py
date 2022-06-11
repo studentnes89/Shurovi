@@ -99,11 +99,11 @@ st.image(url)
 lat = df_selection['latitude']
 lon = df_selection['longitude']
 elevation = df_selection['name']
-map = folium.Map(location=[lat, lon], zoom_start = 3)
+map = folium.Map(location=[lat, lon], zoom_start = 5)
 
 for lat, lon, elevation in zip(lat, lon, elevation):
     folium.Marker(location=[lat, lon], popup=str(elevation), icon=folium.Icon(color = 'pink')).add_to(map)
-st_data=st_folium(map)
+st_data=st_folium(map, width=600)
 
 pizza_df=pd.read_csv("pizza_df.csv")
 pizza_df['company'] = pizza_df['company'].str.replace('A', "5")
