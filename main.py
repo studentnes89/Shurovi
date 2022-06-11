@@ -148,7 +148,7 @@ pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
 pizza_df=pizza_df[["company", "price", "diameter", "extra_sauce", "extra_cheese", "extra_mushrooms"]]
 pizza_df["price"] = pizza_df.price.mul(3)
 
-Company raiting = st.selectbox(
+Company_raiting = st.selectbox(
         "Company", ("5", "4", "3", "2", "1")
     )
 
