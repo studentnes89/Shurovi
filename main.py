@@ -56,7 +56,7 @@ df_selection = df[(df['region'] == Region) & (df['cuisine'] == Cuisine)]
 
 selected_class = st.radio("Select Class", df_selection['price'].unique())
 st.write("Selected Class:", selected_class)
-st.write("Selected Class Type:", type(selected_class))
+
 df_selection = df_selection[df_selection["price"] ==selected_class]
 df_show = df_selection[["name", "region", "city", "price", "cuisine", "url"]]
 df_show
