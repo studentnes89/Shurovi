@@ -83,18 +83,23 @@ for link in t("img"):
 url = "https:"+ itog
 st.image(url)
 ##Карта
-loc = 'cit'
-location = geocode(loc, provider="nominatim" , user_agent = 'my_request')
-point = location.geometry.iloc[0] 
+#loc = 'cit'
+#location = geocode(loc, provider="nominatim" , user_agent = 'my_request')
+#point = location.geometry.iloc[0] 
 
-data= pd.DataFrame({"longitude":[point.x], "latitude":[point.y]})
+#data= pd.DataFrame({"longitude":[point.x], "latitude":[point.y]})
 
-mapit = folium.Map( location=[0, 0], zoom_start=1 ) 
-for lat , lon in zip(data.latitude , data.longitude): 
+#mapit = folium.Map( location=[0, 0], zoom_start=1 ) 
+#for lat , lon in zip(data.latitude , data.longitude): 
         folium.Marker( location=[ lat,lon ], fill_color='#43d9de', radius=8 ).add_to( mapit ) 
-st_data = st_folium(mapit, width = 725)
-st_data
+#st_data = st_folium(mapit, width = 725)
+#st_data
 ###Карта
+
+
+map = folium.Map(location=[37.296933,-121.9574983], zoom_start = 8, tiles = "Mapbox bright")
+
+folium.Marker(location=[37.4074687,-122.086669], popup = "Google HQ", icon=folium.Icon(color = 'gray')).add_to(map)
 
 pizza_df=pd.read_csv("pizza_df.csv")
 pizza_df['company'] = pizza_df['company'].str.replace('A', "5")
