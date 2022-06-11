@@ -99,7 +99,7 @@ st.image(url)
 ###Карта
 
 def color_change(name):
-    if(name=name_2):
+    if(name==name_2):
         return('pink')
     else:
         return('gray')
