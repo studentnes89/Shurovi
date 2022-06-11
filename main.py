@@ -131,16 +131,14 @@ pizza_df['price'] = pd.to_numeric(pizza_df['price'])
 pizza_df['extra_sauce'] = pd.to_numeric(pizza_df['extra_sauce'])
 pizza_df['extra_cheese'] = pd.to_numeric(pizza_df['extra_cheese'])
 pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
-pizza_df
 
-a = pizza_df.corr()
-a
-fig = plt.figure(figsize=(50, 20), dpi= 80)
-sns.heatmap(pizza_df.corr(), xticklabels=pizza_df.corr().columns, yticklabels=pizza_df.corr().columns, cmap='RdYlGn', center=0, annot=True)
-plt.title('Correlogram of pizza', fontsize=60)
-plt.xticks(fontsize=15)
-plt.yticks(fontsize=15)
-st.pyplot(fig)
+
+#fig = plt.figure(figsize=(50, 20), dpi= 80)
+#sns.heatmap(pizza_df.corr(), xticklabels=pizza_df.corr().columns, yticklabels=pizza_df.corr().columns, cmap='RdYlGn', center=0, annot=True)
+#plt.title('Correlogram of pizza', fontsize=60)
+#plt.xticks(fontsize=15)
+#plt.yticks(fontsize=15)
+#st.pyplot(fig)
 
 fig = pizza_df.plot.scatter(x="diameter", y="price")
-fig
+st.pyplot(fig)
