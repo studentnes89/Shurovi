@@ -140,5 +140,5 @@ pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
 #plt.yticks(fontsize=15)
 #st.pyplot(fig)
 
-pizza_df.plt.scatter(x="diameter", y="price")
-
+fig = pizza_df.plt.scatter(x="diameter", y="price")
+st.pyplot(fig)
