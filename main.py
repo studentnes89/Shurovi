@@ -113,10 +113,10 @@ for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
 
 st_data=st_folium(map, width=900)
 
-##f = open("textik.txt")
-##textik = f.read()
-##Moscow_restaurants = re.findall("\d.«([^»]+)»", textik)
-##f.close()
+f = open("textik.txt")
+textik = f.read()
+Moscow_restaurants = re.findall("\d.«([^»]+)»", textik)
+f.close()
 
 
 pizza_df=pd.read_csv("pizza_df.csv")
