@@ -116,6 +116,7 @@ st_data=st_folium(map, width=900)
 f = open("textik.txt")
 textik = f.read()
 Moscow_restaurants = re.findall("\d.«([^»]+)»", textik)
+st.write(Moscow_restaurants)
 f.close()
 
 
