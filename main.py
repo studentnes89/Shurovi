@@ -98,9 +98,9 @@ st.image(url)
 #st_data
 ###Карта
 
-lat = df_selection['latitude']
-lon = df_selection['longitude']
-name = df_selection['name']
+lat = df_selection_2['latitude']
+lon = df_selection_2['longitude']
+name = df_selection_2['name']
 map = folium.Map(location=[lat, lon], zoom_start = 5)
 folium.TileLayer('cartodbpositron').add_to(map)
 for lat, lon, name in zip(lat, lon, name):
