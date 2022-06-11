@@ -196,17 +196,17 @@ url_gribi = "https://sakura-rolls31.ru/image/cache/catalog/gubkin/grib-1000x700.
 url_sous = "https://eatwell101.club/wp-content/uploads/2019/09/best-marinara-sauce-for-pizza-inspirational-pizza-sauce-vs-marinara-surprising-similarities-and-of-best-marinara-sauce-for-pizza.jpg"
 ##Доп картинки
 if (extra_cheese >0) and (extra_sauce == 0) and (extra_mushrooms == 0):
-    st.image(url_sir)
+    st.image(url_sir, width=300)
 if (extra_cheese >0) and (extra_sauce == 0) and (extra_mushrooms > 0):
-    st.image(url_gribi)
+    st.image(url_gribi, width=300)
 if (extra_cheese >0) and (extra_sauce > 0) and (extra_mushrooms > 0):
-    st.image(url_gribi)
+    st.image(url_gribi, width=300)
 if (extra_cheese == 0) and (extra_sauce == 0) and (extra_mushrooms > 0):
-    st.image(url_gribi)
+    st.image(url_gribi, width=300)
 if (extra_cheese >0) and (extra_sauce > 0) and (extra_mushrooms == 0):
-    st.image(url_sir)
+    st.image(url_sir, width=300)
 if (extra_cheese == 0) and (extra_sauce > 0) and (extra_mushrooms == 0):
-    st.image(url_sous, width=90)
+    st.image(url_sous, width=300)
 st.write("Price:", price)
 
 
