@@ -136,7 +136,7 @@ pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
 pizza_df
 
 fig = plt.figure(figsize=(50, 20), dpi= 80)
-sns.heatmap(df.corr(), xticklabels=pizza_df.corr().columns, yticklabels=pizza_df.corr().columns, cmap='RdYlGn', center=0, annot=True)
+sns.heatmap(pizza_df.corr(), xticklabels=pizza_df.corr().columns, yticklabels=pizza_df.corr().columns, cmap='RdYlGn', center=0, annot=True)
 plt.title('Correlogram of pizza', fontsize=60)
 plt.xticks(fontsize=15)
 plt.yticks(fontsize=15)
