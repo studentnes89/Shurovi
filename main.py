@@ -96,10 +96,13 @@ st.image(url)
 #st_data
 ###Карта
 
-lat = df_selection['LAT']
-lon = df_selection['LON']
-elevation = df_selection['ELEV']
-map = folium.Map(location=[37.296933,-121.9574983], zoom_start = 8)
+lat = df_selection['latitude']
+lon = df_selection['longitude']
+elevation = df_selection['name']
+map = folium.Map(location=[37.296933,-121.9574983], zoom_start = 5)
+
+for lat, lon, elevation in zip(lat, lon, elevation):
+    folium.Marker(location=[lat, lon], popup=str(elevation), icon=folium.Icon(color = 'gray')).add_to(map)
 st_data=st_folium(map)
 
 pizza_df=pd.read_csv("pizza_df.csv")
