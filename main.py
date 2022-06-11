@@ -175,9 +175,8 @@ extra_mushrooms = Extra_mushrooms.slider(
     max_value = 10.0
 )
 
+model = LinearRegression()
+model.fit(pizza_df.drop(columns=["price"]), pizza_df["price"])
+price = model.intercept_ + Company_raiting*model.coef_[0] + diameter*model.coef_[1] + extra_sauce*model.coef_[2] +extra_cheese*model.coef_[3] + extra_mushrooms*model.coef_[4]
 
-#model = LinearRegression()
-#model.fit(pizza_df.drop(columns=["price"]), pizza_df["price"])
-#price = model.intercept_ + df_selection[0]*model.coef_[0] + df_selection[2]*model.coef_[1] + df_selection[3]*model.coef_[2] +df_selection[4]*model.coef_[3] + df_selection[5]*model.coef_[4]
-
-##st.write(price)
+st.write(price)
