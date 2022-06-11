@@ -116,6 +116,14 @@ for lat, lon, name in zip(lat, lon, name):
     folium.Marker(location=[lat, lon], popup=str(name), icon=folium.Icon(color = color_change(name))).add_to(map)
 st_data=st_folium(map, width=900)
 
+f = open("func.txt")
+textik = f.read()
+
+ 
+re.findall("\d.«([^»]+)»", textik)
+f.close()
+
+
 pizza_df=pd.read_csv("pizza_df.csv")
 pizza_df['company'] = pizza_df['company'].str.replace('A', "5")
 pizza_df['company'] = pizza_df['company'].str.replace('B', "4")
@@ -205,3 +213,5 @@ if (extra_cheese >0) and (extra_sauce > 0) and (extra_mushrooms == 0):
 if (extra_cheese == 0) and (extra_sauce > 0) and (extra_mushrooms == 0):
     st.image(url_sous)
 st.write("Price:", price)
+
+
