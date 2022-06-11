@@ -17,7 +17,7 @@ import sklearn
 from sklearn.linear_model import LinearRegression
 import re
 
-##№ вафля
+### вафля
 
 df= pd.read_csv("df_23.csv")
 
