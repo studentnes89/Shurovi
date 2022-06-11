@@ -206,7 +206,7 @@ if (extra_cheese == 0) and (extra_sauce == 0) and (extra_mushrooms > 0):
 if (extra_cheese >0) and (extra_sauce > 0) and (extra_mushrooms == 0):
     st.image(url_sir)
 if (extra_cheese == 0) and (extra_sauce > 0) and (extra_mushrooms == 0):
-    st.image(url_sous)
+    st.image(url_sous, width=90)
 st.write("Price:", price)
 
 
