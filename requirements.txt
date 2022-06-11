@@ -11,4 +11,3 @@ geopy
 sklearn
 LinearRegression
 regex
-
