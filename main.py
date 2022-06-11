@@ -179,4 +179,20 @@ model = LinearRegression()
 model.fit(pizza_df.drop(columns=["price"]), pizza_df["price"])
 price = model.intercept_ + Company_raiting*model.coef_[0] + diameter*model.coef_[1] + extra_sauce*model.coef_[2] +extra_cheese*model.coef_[3] + extra_mushrooms*model.coef_[4]
 
+url_sir = "http://tuimazy-sushi.ru/uploads/newNew/0.jpg"
+url_gribi = "https://sakura-rolls31.ru/image/cache/catalog/gubkin/grib-1000x700.jpg"
+url_sous = "https://eatwell101.club/wp-content/uploads/2019/09/best-marinara-sauce-for-pizza-inspirational-pizza-sauce-vs-marinara-surprising-similarities-and-of-best-marinara-sauce-for-pizza.jpg"
+
+if (extra_cheese >0) and (extra_sauce = 0) and (extra_mushrooms = 0):
+    st.image(url_sir)
+if (extra_cheese >0) and (extra_sauce = 0) and (extra_mushrooms > 0):
+    st.image(url_gribi)
+if (extra_cheese >0) and (extra_sauce > 0) and (extra_mushrooms > 0):
+    st.image(url_gribi)
+if (extra_cheese =0) and (extra_sauce = 0) and (extra_mushrooms > 0):
+    st.image(url_gribi)
+if (extra_cheese >0) and (extra_sauce > 0) and (extra_mushrooms = 0):
+    st.image(url_sir)
+if (extra_cheese =0) and (extra_sauce > 0) and (extra_mushrooms = 0):
+    st.image(url_sous)
 st.write("Price:", price)
