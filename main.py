@@ -149,7 +149,7 @@ pizza_df=pizza_df[["company", "price", "diameter", "extra_sauce", "extra_cheese"
 pizza_df["price"] = pizza_df.price.mul(3)
 
 Company_raiting = st.selectbox(
-        "Company", ("5", "4", "3", "2", "1")
+        "Company", (5, 4, 3, 2, 1)
     )
 
 Diameter = st.columns(2)
