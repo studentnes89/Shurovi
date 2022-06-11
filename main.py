@@ -116,10 +116,10 @@ for lat, lon, name in zip(lat, lon, name):
     folium.Marker(location=[lat, lon], popup=str(name), icon=folium.Icon(color = color_change(name))).add_to(map)
 st_data=st_folium(map, width=900)
 
-f = open("textik.txt")
-textik = f.read()
-Moscow_restaurants = re.findall("\d.«([^»]+)»", textik)
-f.close()
+##f = open("textik.txt")
+##textik = f.read()
+##Moscow_restaurants = re.findall("\d.«([^»]+)»", textik)
+##f.close()
 
 
 pizza_df=pd.read_csv("pizza_df.csv")
