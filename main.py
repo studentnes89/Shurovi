@@ -100,7 +100,7 @@ st.image(url)
 
 def color_change(name):
     name_2 = df_selection_2['name']
-    if(name==name_2):
+    if(name.any()==name_2):
         return('pink')
     else:
         return('gray')
@@ -116,11 +116,9 @@ for lat, lon, name in zip(lat, lon, name):
     folium.Marker(location=[lat, lon], popup=str(name), icon=folium.Icon(color = color_change(name))).add_to(map)
 st_data=st_folium(map, width=900)
 
-f = open("func.txt")
+f = open("textik.txt")
 textik = f.read()
-
- 
-re.findall("\d.«([^»]+)»", textik)
+Moscow_restaurants = re.findall("\d.«([^»]+)»", textik)
 f.close()
 
 
