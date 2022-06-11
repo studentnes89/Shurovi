@@ -110,6 +110,12 @@ for lat, lon, name in zip(lat, lon, name):
     folium.Marker(location=[lat, lon], popup=str(name), icon=folium.Icon(color = 'gray' )).add_to(map)
 for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
     folium.Marker(location=[lat_2, lon_2], popup=str(name_2), icon=folium.Icon(color = 'pink' )).add_to(map)
+feature_group = FeatureGroup(name='Layer1')
+feature_group2 = FeatureGroup(name='Layer2')
+folium.Marker(location=COORDINATE).add_to(feature_group)
+folium.Marker(location=COORDINATE2).add_to(feature_group2)
+map.add_child(feature_group)
+map.add_child(feature_group2)
 st_data=st_folium(map, width=900)
 
 ##f = open("textik.txt")
