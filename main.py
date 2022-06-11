@@ -98,6 +98,11 @@ st.image(url)
 #st_data
 ###Карта
 
+def color_change(lat, lon):
+    if(lat==lat_2) and (lon==lon_2):
+        return('pink')
+    else:
+        return('gray')
 lat = df_selection['latitude']
 lon = df_selection['longitude']
 name = df_selection['name']
@@ -107,7 +112,7 @@ name_2 = df_selection_2['name']
 map = folium.Map(location=[lat_2, lon_2], zoom_start = 5)
 folium.TileLayer('cartodbpositron').add_to(map)
 for lat, lon, name in zip(lat, lon, name):
-    folium.Marker(location=[lat, lon], popup=str(name), icon=folium.Icon(color = 'grey')).add_to(map)
+    folium.Marker(location=[lat, lon], popup=str(name), icon=folium.Icon(color = color_change(lat, lon)).add_to(map)
 st_data=st_folium(map, width=900)
 
 pizza_df=pd.read_csv("pizza_df.csv")
