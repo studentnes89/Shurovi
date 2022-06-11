@@ -98,10 +98,13 @@ st.image(url)
 #st_data
 ###Карта
 
-lat = df_selection_2['latitude']
-lon = df_selection_2['longitude']
-name = df_selection_2['name']
-map = folium.Map(location=[lat, lon], zoom_start = 5)
+lat = df_selection['latitude']
+lon = df_selection['longitude']
+name = df_selection['name']
+lat_2 = df_selection_2['latitude']
+lon_2 = df_selection_2['longitude']
+name_2 = df_selection_2['name']
+map = folium.Map(location=[lat_2, lon_2], zoom_start = 5)
 folium.TileLayer('cartodbpositron').add_to(map)
 for lat, lon, name in zip(lat, lon, name):
     folium.Marker(location=[lat, lon], popup=str(name), icon=folium.Icon(color = 'grey')).add_to(map)
