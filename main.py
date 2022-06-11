@@ -100,7 +100,7 @@ st.image(url)
 map = folium.Map(location=[37.296933,-121.9574983], zoom_start = 8)
 
 folium.Marker(location=[37.4074687,-122.086669], popup = "Google HQ", icon=folium.Icon(color = 'gray')).add_to(map)
-map
+st_data=st_folium(map)
 
 pizza_df=pd.read_csv("pizza_df.csv")
 pizza_df['company'] = pizza_df['company'].str.replace('A', "5")
