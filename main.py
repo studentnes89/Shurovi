@@ -62,10 +62,10 @@ df_show
 
 restaurant = st.radio("Select option", df_selection['name'].unique())
 st.write("Restaurant:", restaurant)
-df_selection = df_selection[df_selection["name"] ==restaurant]
-df_show = df_selection[["name", "region", "city", "price", "cuisine", "url"]]
+df_selection_2 = df_selection[df_selection["name"] ==restaurant]
+df_show = df_selection_2[["name", "region", "city", "price", "cuisine", "url"]]
 df_show
-discrp=df_selection['description'][0:1].values[0]
+discrp=df_selection_2['description'][0:1].values[0]
 discrp
 
 cit = df_selection['city'][0:1].values[0]
@@ -98,14 +98,14 @@ st.image(url)
 #st_data
 ###Карта
 
-#lat = df_selection['latitude']
-#lon = df_selection['longitude']
-#elevation = df_selection['name']
-#map = folium.Map(location=[lat, lon], zoom_start = 5)
-#folium.TileLayer('cartodbpositron').add_to(map)
-#for lat, lon, elevation in zip(lat, lon, elevation):
-#    folium.Marker(location=[lat, lon], popup=str(elevation), icon=folium.Icon(color = 'pink')).add_to(map)
-#st_data=st_folium(map, width=900)
+lat = df_selection['latitude']
+lon = df_selection['longitude']
+name = df_selection['name']
+map = folium.Map(location=[lat, lon], zoom_start = 5)
+folium.TileLayer('cartodbpositron').add_to(map)
+for lat, lon, name in zip(lat, lon, name):
+    folium.Marker(location=[lat, lon], popup=str(elevation), icon=folium.Icon(color = 'grey')).add_to(map)
+st_data=st_folium(map, width=900)
 
 pizza_df=pd.read_csv("pizza_df.csv")
 pizza_df['company'] = pizza_df['company'].str.replace('A', "5")
@@ -155,20 +155,20 @@ Company_raiting = st.selectbox(
 Diameter = st.columns(2)
 diameter = Diameter[0].number_input("Diameter", value = 20)
 
-Extra_sauce = st.expander("Optional Configurations", True)
+Extra_sauce = st.expander("Optional addings", True)
 extra_sauce = Extra_sauce.slider(
     "Extra Sauce",
     min_value = 0.0,
     max_value = 10.0
 )
-Extra_cheese = st.expander("Optional Configurations", True)
+Extra_cheese = st.expander("Optional addings", True)
 extra_cheese = Extra_cheese.slider(
     "Extra cheese",
     min_value = 0.0,
     max_value = 10.0
 )
 
-Extra_mushrooms = st.expander("Optional Configurations", True)
+Extra_mushrooms = st.expander("Optional addings", True)
 extra_mushrooms = Extra_mushrooms.slider(
     "Extra mushrooms",
     min_value = 0.0,
@@ -182,9 +182,9 @@ price = model.intercept_ + Company_raiting*model.coef_[0] + diameter*model.coef_
 url_sir = "http://tuimazy-sushi.ru/uploads/newNew/0.jpg"
 url_gribi = "https://sakura-rolls31.ru/image/cache/catalog/gubkin/grib-1000x700.jpg"
 url_sous = "https://eatwell101.club/wp-content/uploads/2019/09/best-marinara-sauce-for-pizza-inspirational-pizza-sauce-vs-marinara-surprising-similarities-and-of-best-marinara-sauce-for-pizza.jpg"
-
+##Доп картинки
 if (extra_cheese >0) and (extra_sauce == 0) and (extra_mushrooms == 0):
-    st.image(url_sir, width=diameter*30)
+    st.image(url_sir)
 if (extra_cheese >0) and (extra_sauce == 0) and (extra_mushrooms > 0):
     st.image(url_gribi)
 if (extra_cheese >0) and (extra_sauce > 0) and (extra_mushrooms > 0):
