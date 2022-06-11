@@ -11,4 +11,4 @@ geopy
 sklearn
 LinearRegression
 regex
-SQLite
+SQLite==3.28.0
