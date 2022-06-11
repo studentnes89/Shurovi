@@ -157,7 +157,12 @@ Company = st.selectbox(
 Diameter = st.columns(2)
 diameter = Diameter[0].number_input("Diameter", value = 20)
 
-
+Extra_sauce = st.expander("Optional Configurations", True)
+extra_sauce = Extra_sauce.slider(
+    "Minimum Fare",
+    min_value = 0.0,
+    max_value = 10.0
+)
 
 
 #model = LinearRegression()
