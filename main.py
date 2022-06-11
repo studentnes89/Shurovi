@@ -102,7 +102,7 @@ elevation = df_selection['name']
 map = folium.Map(location=[37.296933,-121.9574983], zoom_start = 2)
 
 for lat, lon, elevation in zip(lat, lon, elevation):
-    folium.Marker(location=[lat, lon], popup=str(elevation), icon=folium.Icon(color = 'gray')).add_to(map)
+    folium.Marker(location=[lat, lon], popup=str(elevation), icon=folium.Icon(color = 'pink')).add_to(map)
 st_data=st_folium(map)
 
 pizza_df=pd.read_csv("pizza_df.csv")
