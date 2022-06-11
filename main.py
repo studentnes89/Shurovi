@@ -54,16 +54,14 @@ Cuisine = st.selectbox(
     )
 df_selection = df[(df['region'] == Region) & (df['cuisine'] == Cuisine)]
 
-selected_class = st.radio("Select Class", df_selection['price'].unique())
-st.write("Selected Class:", selected_class)
-
-df_selection = df_selection[df_selection["price"] ==selected_class]
+average check = st.radio("Select Class", df_selection['price'].unique())
+st.write("Average check:", average check)
+df_selection = df_selection[df_selection["price"] ==average check]
 df_show = df_selection[["name", "region", "city", "price", "cuisine", "url"]]
 df_show
 
 selected_class = st.radio("Select Class", df_selection['name'].unique())
 st.write("Selected Class:", selected_class)
-st.write("Selected Class Type:", type(selected_class))
 df_selection = df_selection[df_selection["name"] ==selected_class]
 df_show = df_selection[["name", "region", "city", "price", "cuisine", "url"]]
 df_show
