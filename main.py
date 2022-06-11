@@ -143,3 +143,5 @@ plt.xticks(fontsize=15)
 plt.yticks(fontsize=15)
 st.pyplot(fig)
 
+fig = pizza_df.plot.scatter(x="diameter", y="price")
+st.pyplot(fig)
