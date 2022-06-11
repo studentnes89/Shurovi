@@ -15,6 +15,7 @@ from geopandas.tools import geocode
 from streamlit_folium import st_folium
 import sklearn
 from sklearn.linear_model import LinearRegression
+import re
 
 ## вафля
 
@@ -103,16 +104,12 @@ name = df_selection['name']
 name_2 = df_selection_2['name']
 lat_2 = df_selection_2['latitude']
 lon_2 = df_selection_2['longitude']
-def color_change(name):
-    if(name==name_2):
-        return('pink')
-    else:
-        return('gray')
-
 map = folium.Map(location=[lat_2, lon_2], zoom_start = 5)
 folium.TileLayer('cartodbpositron').add_to(map)
 for lat, lon, name in zip(lat, lon, name):
-    folium.Marker(location=[lat, lon], popup=str(name), icon=folium.Icon(color = color_change(name))).add_to(map)
+    folium.Marker(location=[lat, lon], popup=str(name), icon=folium.Icon(color = gray )).add_to(map)
+for coordinates in [lat_2, lon_2]:
+    folium.Marker(location=coordinates, icon=folium.Icon(color = 'pink')).add_to(map)
 st_data=st_folium(map, width=900)
 
 ##f = open("textik.txt")
