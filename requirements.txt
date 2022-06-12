@@ -13,4 +13,3 @@ LinearRegression
 regex
 networkx
 scipy
-networkx.algorithms==2.8.3
