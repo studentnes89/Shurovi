@@ -235,7 +235,7 @@ pizza_df_new
 list_tab = [(0, 5),(0, 6),(0, 7), (1, 5),(1, 6),(1, 7),(2, 5),(2, 6),(2, 7),(3, 5),(3, 6),(3, 7),(4, 5),(4, 6),(4, 7)]
 G = nx.Graph()
 k = nx.path_graph(8) 
-G.add_nodes_from(k, color ='blue'
+G.add_nodes_from(k, color ='blue')
 G.add_edges_from(list_tab, color='pink')
 figure, ax = plt.subplots()
 pos = nx.kamada_kawai_layout(G)
