@@ -16,6 +16,7 @@ from streamlit_folium import st_folium
 import sklearn
 from sklearn.linear_model import LinearRegression
 import re
+import networkx as nx
 
 ### вафля
 
