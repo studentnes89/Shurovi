@@ -17,6 +17,9 @@ import sklearn
 from sklearn.linear_model import LinearRegression
 import re
 import networkx as nx
+from networkx.algorithms import bipartite
+from scipy.sparse import csc_matrix
+
 
 ### вафля
 
@@ -225,5 +228,15 @@ for i in range(len(pizza_df_new.index)):
         pri = 5
     pizza_df_new.loc[i,'price'] = pri
 pizza_df_new
+
+RB = nx.complete_bipartite_graph(5, 3)
+A  = csc_matrix(bipartite.biadjacency_matrix(RB, row_order=bipartite.sets(RB)[0]))
+G = nx_graph_from_biadjacency_matrix(A)
+nx.draw_circular(G, node_color = "red", with_labels = True)
+fig, ax = plt.subplots()
+pos = nx.kamada_kawai_layout(G)
+nx.draw(G,pos, with_labels=True)
+st.pyplot(fig)
+st.balloons()
 
 
