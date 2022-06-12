@@ -233,7 +233,7 @@ pizza_df_new
 
 RB = nx.complete_bipartite_graph(5, 3)
 A  = csc_matrix(bipartite.biadjacency_matrix(RB, row_order=bipartite.sets(RB)[0]))
-G = nx_graph_from_adjacency_matrix(A)
+G = nx_graph_from_biadjacency_matrix(A)
 nx.draw_circular(G, node_color = "red", with_labels = True)
 fig, ax = plt.subplots()
 pos = nx.kamada_kawai_layout(G)
