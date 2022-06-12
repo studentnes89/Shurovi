@@ -13,3 +13,4 @@ LinearRegression
 regex
 networkx
 scipy
+networkx.algorithms
