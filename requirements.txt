@@ -11,5 +11,5 @@ geopy
 sklearn
 LinearRegression
 regex
-networkx
+networkx==2.8
 scipy
