@@ -13,3 +13,5 @@ LinearRegression
 regex
 networkx
 scipy
+bipartite
+csc_matrix
