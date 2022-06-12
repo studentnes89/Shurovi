@@ -13,4 +13,3 @@ LinearRegression
 regex
 networkx
 scipy
-bipartite
