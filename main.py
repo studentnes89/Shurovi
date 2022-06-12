@@ -227,6 +227,7 @@ for i in range(len(pizza_df_new.index)):
     elif (pr>=609) and (pr<=744):
         pri = 5
     pizza_df_new.loc[i,'price'] = pri
+
 pizza_df_new
 
 RB = nx.complete_bipartite_graph(5, 3)
