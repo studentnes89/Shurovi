@@ -11,3 +11,5 @@ geopy
 sklearn
 LinearRegression
 regex
+networkx
+scipy
