@@ -21,6 +21,7 @@ from networkx.algorithms import bipartite
 from scipy.sparse import csc_matrix
 
 
+
 ### вафля
 
 df= pd.read_csv("df_23.csv")
