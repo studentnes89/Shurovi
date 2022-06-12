@@ -209,4 +209,20 @@ if (extra_cheese == 0) and (extra_sauce > 0) and (extra_mushrooms == 0):
     st.image(url_sous, width=300)
 st.write("Price:", price)
 
+pizza_df_new = pizza_df.copy()
+for i in range(len(pizza_df_new.index)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    if (pr>=69) and (pr<204):
+        pri = 1
+    elif (pr>=204) and (pr<339):
+        pri = 2
+    elif (pr>=339) and (pr<474):
+        pri = 3
+    elif (pr>=474) and (pr<609):
+        pri = 4
+    elif (pr>=609) and (pr<=744):
+        pri = 5
+    pizza_df_new.loc[i,'price'] = pri
+pizza_df_new
+
 
