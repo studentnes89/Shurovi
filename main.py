@@ -268,9 +268,9 @@ plt.yticks(fontsize=15)
 st.pyplot(fig)
 
 st.markdown("Так, так, вроде что-то есть! Посмотрим на наиболее коррелированные переменные")
-#sns.set_style("white")
-#di = sns.lmplot(x="diameter", y="price", data=pizza_df)
-#st.pyplot(di)
+sns.set_style("pink")
+di = sns.lmplot(x="diameter", y="price", data=pizza_df)
+st.pyplot(di)
 
 
 list_tab = [(0, 5),(0, 6),(0, 7), (1, 5),(1, 6),(1, 7),(2, 5),(2, 6),(2, 7),(3, 5),(3, 6),(3, 7),(4, 5),(4, 6),(4, 7)]
