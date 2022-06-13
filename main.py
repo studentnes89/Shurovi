@@ -146,8 +146,13 @@ rest_df = rest_df[['name', 'url', 'address']]
 rest_df["lat"] = ""
 rest_df["lon"] = ""
 
+entrypoint = "https://nominatim.openstreetmap.org/search"
+params = {'q': 'Москва, Моховая, 15',
+          'format': 'json'}
+r = requests.get(entrypoint, params=params)
+data = r.json()
+data[0]['lat']
 
-rest_df.to_csv('rest_df.csv')
 
 
 
