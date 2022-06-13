@@ -8,10 +8,8 @@ import matplotlib as mpl
 from bs4 import BeautifulSoup
 import requests
 from pywaffle import Waffle 
-import geopandas as gpd
 import folium
 import json
-from geopandas.tools import geocode
 from streamlit_folium import st_folium
 import sklearn
 from sklearn.linear_model import LinearRegression
