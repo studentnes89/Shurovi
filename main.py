@@ -78,11 +78,10 @@ st.write("Restaurant:", restaurant)
 df_selection_2 = df_selection[df_selection["name"] ==restaurant]
 df_show = df_selection_2[["name", "region", "city", "price", "cuisine", "url"]]
 df_show
-discrp=df_selection_2['description'][0:1].values[0]
-discrp
 st.markdown("Для того чтобы насладиться ужином в выбранном ресторане, вам необходимо будет совершить путешествие в другой город. Посмотрите в каком замечательном месте находится ваш ресторан")
 st.markdown("P.S. Данные описания и картинки города я получаю с помощью веб-скреппинга, однако не у всех ресторанов на сате Мишлен есть описание и картинка с достопримечательностями города.")
 st.markdown("Попробуйте выбрать Австрию, Тайпей, Грецию чтобы насладиться также описанием и фотографиями доспримечательностей")
+
 cit = df_selection['city'][0:1].values[0]
 cit = wikipedia.search(cit)[0]
 st.write(cit)
@@ -99,7 +98,15 @@ for link in t("img"):
         break
 url = "https:"+ itog
 st.image(url)
+discrp=df_selection_2['description'][0:1].values[0]
+discrp
 
+st.header("Географическое расположение ресторана")
+st.markdown("Давайте же посмотрим на карте, где выбранный вами ресторан находится на карте. Он выделен розовым маркером.")
+st.header("Ааа, о ужас!")
+st.image('https://avatars.mds.yandex.net/i?id=158d4ddefbcb6b7b16a2354feb1bd061-4971670-images-thumbs&n=13')
+st.markdown("Вы проделали долгий путь, приехали в ресторан, но вам там не понравилось. Что же делать?")
+st.markdown("Не переживайте, мы это продумали! На карте также отмечены рестораны Мишлен поблизости (в регионах, где их несколько). Они выделены голубыми маркерами. Если вы наведете курсор на маркер, то высветится название ресторана! Да, Да, Всё для вашего удобства!") 
 ###Карта
 lat = df_selection['latitude']
 lon = df_selection['longitude']
