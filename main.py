@@ -72,7 +72,7 @@ st.markdown("В данной таблицу представдены все ре
 df_show = df_selection[["name", "region", "city", "price", "cuisine", "url"]]
 df_show
 
-st.markdown("Если в таблицу представлены несколько ресторанов, можете выбрать любой из них")
+st.markdown("Если в таблице представлены несколько ресторанов, можете выбрать любой из них")
 restaurant = st.radio("Select option", df_selection['name'].unique())
 st.write("Restaurant:", restaurant)
 df_selection_2 = df_selection[df_selection["name"] ==restaurant]
@@ -99,6 +99,7 @@ for link in t("img"):
 url = "https:"+ itog
 st.image(url)
 discrp=df_selection_2['description'][0:1].values[0]
+st.write("Описание ресторана")
 discrp
 
 st.header("Географическое расположение ресторана")
@@ -123,13 +124,20 @@ for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
     folium.Marker(location=[lat_2, lon_2], tooltip=str(name_2), icon=folium.Icon(color = 'pink' ), legend_name="Ресторан").add_to(map)
 st_data=st_folium(map, width=750)
 
+st.header("Москва и рестораны Мишлен?")
+st.markdown("Как вы думаете, в Москве есть рестораны Мишлен? И вы, конечно, правы! Есть, и не один!!")
+st.markdown("Пожалуйста, выберите ресторан из предложенного списка")
 rest_df= pd.read_csv("rest_df.csv")
 Restaurant_name = st.selectbox(
         "Restaurant_name", rest_df["name"].value_counts().index
     )
 df_selection = rest_df[(rest_df['name'] == Restaurant_name)]
 st.write(df_selection['name'][0:1].values[0])
+st.markdown("Правда, волшебная атмосфера?")
 st.image(df_selection['url'][0:1].values[0])
+
+st.header("Вы не москвич? И переживаете, что не сможете найти свое удовольствие?")
+st.markdown("Да не переживайте, автор проекта все продумал!! На карте ниже вы уидете, где находятся эти волшебные места. При этом выбранный вами ресторан будет подсвечиваться розовым")
 
 lat = rest_df['lat']
 lon = rest_df['lon']
