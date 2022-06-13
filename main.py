@@ -153,9 +153,10 @@ for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
 st_data=st_folium(map, width=750)
 
 
-
-
-
+st.header("Дороговато?")
+st.markdown("Вы студент и пока не можете себе позволить обед в ресторане Мишлен?")
+st.header("Пицца")
+st.markdown("Ну и сдался вам этот Мишлен. Давайте лучше закажем пиццу! Ведь пока вы думаете с друзьями над новым прибыльным проектом, вам нужно подкрепиться!!")
 
 
 pizza_df=pd.read_csv("pizza_df.csv")
@@ -198,6 +199,8 @@ pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
 
 pizza_df=pizza_df[["company", "price", "diameter", "extra_sauce", "extra_cheese", "extra_mushrooms"]]
 pizza_df["price"] = pizza_df.price.mul(3)
+
+st.markdown
 
 Company_raiting = st.selectbox(
         "Company", (5, 4, 3, 2, 1)
