@@ -155,7 +155,7 @@ st_data=st_folium(map, width=750)
 
 st.header("Дороговато?")
 st.markdown("Вы студент и пока не можете себе позволить обед в ресторане Мишлен?")
-st.header("Пиццаааа ням ням")
+st.header("Пиццаааа")
 st.markdown("Ну и сдался вам этот Мишлен. Давайте лучше закажем пиццу! Ведь пока вы думаете с друзьями над новым прибыльным проектом, вам нужно подкрепиться!!")
 
 
@@ -185,18 +185,6 @@ pizza_df['extra_sauce'] = pd.to_numeric(pizza_df['extra_sauce'])
 pizza_df['extra_cheese'] = pd.to_numeric(pizza_df['extra_cheese'])
 pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
 
-
-#fig = plt.figure(figsize=(50, 20), dpi= 80)
-#sns.heatmap(pizza_df.corr(), xticklabels=pizza_df.corr().columns, yticklabels=pizza_df.corr().columns, cmap='RdYlGn', center=0, annot=True)
-#plt.title('Correlogram of pizza', fontsize=60)
-#plt.xticks(fontsize=15)
-#plt.yticks(fontsize=15)
-#st.pyplot(fig)
-
-#sns.set_style("white")
-#gridobj = sns.lmplot(x="diameter", y="price", data=pizza_df)
-#st.pyplot(gridobj)
-
 pizza_df=pizza_df[["company", "price", "diameter", "extra_sauce", "extra_cheese", "extra_mushrooms"]]
 pizza_df["price"] = pizza_df.price.mul(3)
 st.markdown("Представляете, вы сможете выбрать пиццу с любыми параметрами и из любой компании, ну не сказка ли?")
@@ -215,7 +203,7 @@ extra_sauce = Extra_sauce.slider(
     min_value = 0.0,
     max_value = 10.0
 )
-st.markdown("Или может быть лбите много сыра?")
+st.markdown("Или может быть любите много сыра?")
 Extra_cheese = st.expander("Optional addings", True)
 extra_cheese = Extra_cheese.slider(
     "Extra cheese",
@@ -250,7 +238,8 @@ if (extra_cheese >0) and (extra_sauce > 0) and (extra_mushrooms == 0):
     st.image(url_sir, width=300)
 if (extra_cheese == 0) and (extra_sauce > 0) and (extra_mushrooms == 0):
     st.image(url_sous, width=300)
-st.markdown("Price:"), price
+st.markdown("Price:")
+st.write(price)
 
 pizza_df_new = pizza_df.copy()
 for i in range(len(pizza_df_new.index)):
@@ -266,8 +255,22 @@ for i in range(len(pizza_df_new.index)):
     elif (pr>=609) and (pr<=744):
         pri = 5
     pizza_df_new.loc[i,'price'] = pri
+st.header("Приятного аппетита!")
 
-pizza_df_new
+st.header("А что внутри?")
+st.markdown("Интересно, как программа предсказывает цену? Это работает с помощью машинного обучения. Давайте убедимся, что между параметрами есть взаимосвязь")
+
+fig = plt.figure(figsize=(50, 20), dpi= 80)
+sns.heatmap(pizza_df.corr(), xticklabels=pizza_df.corr().columns, yticklabels=pizza_df.corr().columns, cmap='RdYlGn', center=0, annot=True)
+plt.title('Correlogram of pizza', fontsize=60)
+plt.xticks(fontsize=15)
+plt.yticks(fontsize=15)
+st.pyplot(fig)
+
+st.markdown("Так, так, вроде что-то есть! Посмотрим на наиболее коррелированные переменные")
+#sns.set_style("pink")
+#di = sns.lmplot(x="diameter", y="price", data=pizza_df)
+#st.pyplot(di)
 
 
 list_tab = [(0, 5),(0, 6),(0, 7), (1, 5),(1, 6),(1, 7),(2, 5),(2, 6),(2, 7),(3, 5),(3, 6),(3, 7),(4, 5),(4, 6),(4, 7)]
