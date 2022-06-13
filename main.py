@@ -137,7 +137,7 @@ st.markdown("Правда, волшебная атмосфера?")
 st.image(df_selection['url'][0:1].values[0])
 
 st.header("Вы не москвич? И переживаете, что не сможете найти свое удовольствие?")
-st.markdown("Да не переживайте, автор проекта все продумал!! На карте ниже вы уидете, где находятся эти волшебные места. При этом выбранный вами ресторан будет подсвечиваться розовым")
+st.markdown("Да не переживайте, автор проекта все продумал!! На карте ниже вы уидете, где находятся эти волшебные места. При этом выбранный вами ресторан будет подсвечиваться розовым, а остальные будут оставаться голубыми, также навядя курсор на марке, высветится название")
 
 lat = rest_df['lat']
 lon = rest_df['lon']
@@ -155,7 +155,7 @@ st_data=st_folium(map, width=750)
 
 st.header("Дороговато?")
 st.markdown("Вы студент и пока не можете себе позволить обед в ресторане Мишлен?")
-st.header("Пицца")
+st.header("Пиццаааа ням ням")
 st.markdown("Ну и сдался вам этот Мишлен. Давайте лучше закажем пиццу! Ведь пока вы думаете с друзьями над новым прибыльным проектом, вам нужно подкрепиться!!")
 
 
@@ -199,29 +199,30 @@ pizza_df['extra_mushrooms'] = pd.to_numeric(pizza_df['extra_mushrooms'])
 
 pizza_df=pizza_df[["company", "price", "diameter", "extra_sauce", "extra_cheese", "extra_mushrooms"]]
 pizza_df["price"] = pizza_df.price.mul(3)
-
-st.markdown
+st.markdown("Представляете, вы сможете выбрать пиццу с любыми параметрами и из любой компании, ну не сказка ли?")
+st.markdown("Пожалуйста, выберите рейтинг компании, где 5 - наивысший, 1 - наименьший")
 
 Company_raiting = st.selectbox(
         "Company", (5, 4, 3, 2, 1)
     )
-
+st.markdown("Пожалуйста, выберите диаметр пиццы")
 Diameter = st.columns(2)
 diameter = Diameter[0].number_input("Diameter", value = 20)
-
+st.markdown("Хотите побольше соуса?")
 Extra_sauce = st.expander("Optional addings", True)
 extra_sauce = Extra_sauce.slider(
     "Extra Sauce",
     min_value = 0.0,
     max_value = 10.0
 )
+st.markdown("Или может быть лбите много сыра?")
 Extra_cheese = st.expander("Optional addings", True)
 extra_cheese = Extra_cheese.slider(
     "Extra cheese",
     min_value = 0.0,
     max_value = 10.0
 )
-
+st.markdown("А грибочки?")
 Extra_mushrooms = st.expander("Optional addings", True)
 extra_mushrooms = Extra_mushrooms.slider(
     "Extra mushrooms",
@@ -249,7 +250,7 @@ if (extra_cheese >0) and (extra_sauce > 0) and (extra_mushrooms == 0):
     st.image(url_sir, width=300)
 if (extra_cheese == 0) and (extra_sauce > 0) and (extra_mushrooms == 0):
     st.image(url_sous, width=300)
-st.write("Price:", price)
+st.markdown("Price:"), price)
 
 pizza_df_new = pizza_df.copy()
 for i in range(len(pizza_df_new.index)):
