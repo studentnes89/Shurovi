@@ -146,6 +146,8 @@ with st.echo(code_location='below'):
         ##                name= div.find_element(By.TAG_NAME, "p").get_attribute("innerHTML")
         ##                df_new.loc[i,'description'] = name
         ##df_new.to_csv('df_23.csv')
+        st.marrkdown("Ещё больше инфромации вы можете узнать о выбранном вами ресторане, перейдя по ссылке")
+        st.write(df_selection['url'][0:1].values[0])
        
         st.header("Географическое расположение ресторана")
         st.markdown("Давайте же посмотрим, где выбранный вами ресторан находится на карте. Он выделен розовым маркером.")
@@ -221,7 +223,7 @@ with st.echo(code_location='below'):
         ##Moscow_restaurants = re.findall("\d.«([^»]+)»", s)
         ##restaurants2_df = pd.DataFrame({'name': [Moscow_restaurants[0], Moscow_restaurants[1], Moscow_restaurants[2], Moscow_restaurants[3], Moscow_restaurants[4], Moscow_restaurants[5], 
         ##Moscow_restaurants[6], Moscow_restaurants[7], Moscow_restaurants[8]],
-                            'address': [url_self, url_bel, url_grand, url_white, url_biolog, url_sah, url_sav, url_art, url_tw] })
+        ##                   'address': [url_self, url_bel, url_grand, url_white, url_biolog, url_sah, url_sav, url_art, url_tw] })
 
         ##rest_df= pd.read_csv("rest2_df.csv")
 
