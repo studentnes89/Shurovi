@@ -18,35 +18,37 @@ import networkx as nx
 from networkx.algorithms import bipartite
 from scipy.sparse import csc_matrix
 
-def print_hello(name="World"):
-        st.header(f" Привет, {name}!")
-st.write("Введите ваше имя")
-name = st.text_input("Your name", key="name", value="дорогой друг")
-a = print_hello(name)
-st.markdown("В данном приложении вы узнаете немного о ресторанах Мишлен, сможете выбрать подходящий именно для Вас в любой точке мира, или же в любимой Москве. А также даже попробуете заказать пиццу")
+with st.echo(code_location='below'):
 
-df= pd.read_csv("df_23.csv")
-st.markdown("Давайте побольше узнаем о ценовых категориях в ресторанах Мишлен. Обратите внимание на обозначения среднего чека на человека.")
-st.markdown("Обозначения в долларах: 1 : 1-10;   11 : 11-50;   111 : 51-80;   1111 : 81-120;   11111 : 121-300")
-st.markdown("Итак, на следующем изображении вы можете увидеть, сколько ресторанов в каждой ценовой категории")
-### построение визуализации (вафля)
-df_vaf = df.groupby('price').size().reset_index(name='counts')
-n_categories = df_vaf.shape[0]
-colors = [plt.cm.inferno_r(i/float(n_categories)) for i in range(n_categories)]
-figure = plt.figure(
-    FigureClass=Waffle,
-    plots={
-        111: {
-            'values': df_vaf['counts'],
-            'labels': ["{0} ({1})".format(n[0], n[1]) for n in df_vaf[['price', 'counts']].itertuples()],
-            'legend': {'loc': 'upper left', 'bbox_to_anchor': (1.05, 1), 'fontsize': 12},
-            'title': {'label': ' Распределение ценовых категорий у ресторанов Мишлен', 'loc': 'center', 'fontsize':26}
+        def print_hello(name="World"):
+                st.header(f" Привет, {name}!")
+        st.write("Введите ваше имя")
+        name = st.text_input("Your name", key="name", value="мой дружочек")
+        a = print_hello(name)
+        st.markdown("В данном приложении вы узнаете немного о ресторанах Мишлен, сможете выбрать подходящий именно для Вас в любой точке мира, или же в любимой Москве. А также даже попробуете заказать пиццу")
+
+        df= pd.read_csv("df_23.csv")
+        st.markdown("Давайте побольше узнаем о ценовых категориях в ресторанах Мишлен. Обратите внимание на обозначения среднего чека на человека.")
+        st.markdown("Обозначения в долларах: 1 : 1-10;   11 : 11-50;   111 : 51-80;   1111 : 81-120;   11111 : 121-300")
+        st.markdown("Итак, на следующем изображении вы можете увидеть, сколько ресторанов в каждой ценовой категории")
+        ### построение визуализации (вафля)
+        df_vaf = df.groupby('price').size().reset_index(name='counts')
+        n_categories = df_vaf.shape[0]
+        colors = [plt.cm.inferno_r(i/float(n_categories)) for i in range(n_categories)]
+        figure = plt.figure(
+        FigureClass=Waffle,
+        plots={
+                111: {
+                'values': df_vaf['counts'],
+                'labels': ["{0} ({1})".format(n[0], n[1]) for n in df_vaf[['price', 'counts']].itertuples()],
+                'legend': {'loc': 'upper left', 'bbox_to_anchor': (1.05, 1), 'fontsize': 12},
+                'title': {'label': ' Распределение ценовых категорий у ресторанов Мишлен', 'loc': 'center', 'fontsize':26}
+                },
         },
-    },
-    rows=7,
-    colors=colors,
-    figsize=(16, 9)
-)
+        rows=7,
+        colors=colors,
+        figsize=(16, 9)
+        )
 st.pyplot(figure)
 st.markdown("А какие же регионы наиболее дорогие и наоборот?")
 df2=df.sort_values(by=["price"])
