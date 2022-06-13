@@ -49,7 +49,7 @@ figure = plt.figure(
 )
 st.pyplot(figure)
 
-df2=df.sort_values(by=["price"])[::10]
+df2=df.sort_values(by=["price"])
 fig, ax = plt.subplots(figsize=(16,10))
 ax = sns.barplot(x="region", y="price", data=df2)
 plt.title('Distribution of regions by price level from the smallest to the largest', fontsize=30)
