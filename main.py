@@ -21,11 +21,11 @@ from networkx.algorithms import bipartite
 from scipy.sparse import csc_matrix
 
 def print_hello(name="World"):
-        st.write(f"### Hello, {name}!")
+        st.header(f"### Привет, {name}!")
 st.write("Введите ваше имя")
 name = st.text_input("Your name", key="name", value="Anonymous")
 a = print_hello(name)
-st.header("a")
+st.header("")
 ### вафля
 
 df= pd.read_csv("df_23.csv")
