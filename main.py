@@ -21,9 +21,9 @@ from scipy.sparse import csc_matrix
 with st.echo(code_location='below'):
 
         def print_hello(name="World"):
-                st.header(f" Привет, {name}!")
+                st.header(f" Привет, {name}! Дождись, пожалуйста, когда мальчишка в правом верхнем углу добежит, чтобы не было проблем")
         st.write("Введите ваше имя")
-        name = st.text_input("Your name", key="name", value="мой дружочек")
+        name = st.text_input("Your name", key="name", value="мой дружочек-пирожочек")
         a = print_hello(name)
         st.markdown("В данном приложении вы узнаете немного о ресторанах Мишлен, сможете выбрать подходящий именно для Вас в любой точке мира, или же в любимой Москве. А также даже попробуете заказать пиццу.")
 
