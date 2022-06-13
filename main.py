@@ -250,7 +250,7 @@ if (extra_cheese >0) and (extra_sauce > 0) and (extra_mushrooms == 0):
     st.image(url_sir, width=300)
 if (extra_cheese == 0) and (extra_sauce > 0) and (extra_mushrooms == 0):
     st.image(url_sous, width=300)
-st.markdown("Price:"), price)
+st.markdown("Price:"), price
 
 pizza_df_new = pizza_df.copy()
 for i in range(len(pizza_df_new.index)):
