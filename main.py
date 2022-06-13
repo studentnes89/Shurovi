@@ -22,10 +22,10 @@ from scipy.sparse import csc_matrix
 
 def print_hello(name="World"):
         st.write(f"### Hello, {name}!")
-
+st.write("Введите ваше имя")
 name = st.text_input("Your name", key="name", value="Anonymous")
-print_hello(name)
-st.header("")
+a = print_hello(name)
+st.header("a")
 ### вафля
 
 df= pd.read_csv("df_23.csv")
