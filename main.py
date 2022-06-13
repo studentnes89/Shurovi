@@ -25,7 +25,7 @@ def print_hello(name="World"):
 st.write("Введите ваше имя")
 name = st.text_input("Your name", key="name", value="дорогой друг")
 a = print_hello(name)
-st.header("")
+st.header("В данном приложении вы узнаете немного о ресторанах Мишлен, сможете выбрать подходящий именно для Вас в любой точке мира, или же в любимой Москве. А также даже попробуете заказать пиццу")
 ### вафля
 
 df= pd.read_csv("df_23.csv")
@@ -252,7 +252,7 @@ G.add_nodes_from(k, color ='blue')
 G.add_edges_from(list_tab, color='pink')
 figure, ax = plt.subplots()
 pos = nx.kamada_kawai_layout(G)
-nx.draw(G, pos)
+nx.draw(G, pos, with_labels=True, node_color='pink')
 st.pyplot(figure)
 
 
