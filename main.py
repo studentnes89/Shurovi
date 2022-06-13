@@ -147,7 +147,12 @@ restaurants_df["lat"] = ""
 restaurants_df["lon"] = ""
 restaurants_df
 
-
+entrypoint = "https://nominatim.openstreetmap.org/search"
+params = {'q': restaurants_df['address'][0:2].values[0],
+          'format': 'json'}
+r = requests.get(entrypoint, params=params)
+data = r.json()
+data[0]['lat']
 
 for i in range(len(restaurants_df.index)):
     entrypoint = "https://nominatim.openstreetmap.org/search"
