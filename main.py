@@ -72,7 +72,7 @@ st.markdown("В данной таблицу представдены все ре
 df_show = df_selection[["name", "region", "city", "price", "cuisine", "url"]]
 df_show
 
-st.markdown"(Если в таблицу представлены несколько ресторанов, можете выбрать любой из них")
+st.markdown("Если в таблицу представлены несколько ресторанов, можете выбрать любой из них")
 restaurant = st.radio("Select option", df_selection['name'].unique())
 st.write("Restaurant:", restaurant)
 df_selection_2 = df_selection[df_selection["name"] ==restaurant]
