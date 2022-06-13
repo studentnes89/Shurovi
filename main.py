@@ -146,7 +146,7 @@ with st.echo(code_location='below'):
         ##                name= div.find_element(By.TAG_NAME, "p").get_attribute("innerHTML")
         ##                df_new.loc[i,'description'] = name
         ##df_new.to_csv('df_23.csv')
-        st.marrkdown("Ещё больше инфромации вы можете узнать о выбранном вами ресторане, перейдя по ссылке")
+        st.markdown("Ещё больше инфромации вы можете узнать о выбранном вами ресторане, перейдя по ссылке")
         st.write(df_selection['url'][0:1].values[0])
        
         st.header("Географическое расположение ресторана")
