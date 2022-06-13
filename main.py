@@ -137,23 +137,17 @@ restaurants2_df = pd.DataFrame({'name': [Moscow_restaurants[0], Moscow_restauran
         Moscow_restaurants[6], Moscow_restaurants[7], Moscow_restaurants[8]],
                             'address': [url_self, url_bel, url_grand, url_white, url_biolog, url_sah, url_sav, url_art, url_tw] })
 
-restaurants_df= pd.read_csv("restaurants_df.csv")
+rest_df= pd.read_csv("restaurants_df.csv")
 
-restaurants_df = restaurants2_df.merge(restaurants_df, left_on='name', right_on='name')
-restaurants_df = restaurants_df.rename (columns = {'address_x': 'url'})
-restaurants_df = restaurants_df.rename (columns = {'address_y': 'address'})
-restaurants_df = restaurants_df[['name', 'url', 'address']]
-restaurants_df["lat"] = ""
-restaurants_df["lon"] = ""
-restaurants_df
+rest_df = restaurants2_df.merge(rest_df, left_on='name', right_on='name')
+rest_df = rest_df.rename (columns = {'address_x': 'url'})
+rest_df = rest_df.rename (columns = {'address_y': 'address'})
+rest_df = rest_df[['name', 'url', 'address']]
+rest_df["lat"] = ""
+rest_df["lon"] = ""
 
-entrypoint = "https://nominatim.openstreetmap.org/search"
-params = {'q': 'Москва, Моховая, 15',
-          'format': 'json'}
-r = requests.get(entrypoint, params=params)
-data = r.json()
-st.write(data[0]['lat'])
 
+rest_df.to_csv('rest_df.csv')
 
 
 
