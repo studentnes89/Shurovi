@@ -187,16 +187,16 @@ with st.echo(code_location='below'):
         conn = sqlite3.connect("database.sqlite")
         c = conn.cursor()
         c.execute(
-        """
+        #"""
         ###CREATE TABLE rest3 (
         ##id integer PRIMARY KEY,
         #name,
         ###address
-        )
-        """
-        )
+        ##)
+        #"""
+        ###)
         c.execute(
-        """
+        #"""
         ###INSERT INTO rest3 VALUES
         (1, "Selfie", "Москва, Новинский бульвар, 31"),
         (2, "Белуга", "Москва, Моховая, 15"),
@@ -207,16 +207,16 @@ with st.echo(code_location='below'):
         (7, "Savva", "Москва, Театральный проезд, 2"),
         (8, "ARTEST Chef’s Table", "Москва, Смоленская площадь, 3"),
         (9, "Twins Garden", "Москва, Страстной бульвар, 8")
-        """
-        )
-        rest_df = pd.read_sql(
-        """
+        ##"""
+        #)
+        ###rest_df = pd.read_sql(
+        ##"""
         #SELECT * FROM rest3;
-        """,
-        conn,
-        )
-        rest_df.to_csv('rest2_df.csv')
-        """
+        ###""",
+        ##conn,
+        #)
+        ###rest_df.to_csv('rest2_df.csv')
+        
         
         rest_df= pd.read_csv("rest_df.csv")
         
