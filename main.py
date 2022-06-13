@@ -133,7 +133,7 @@ st_data=st_folium(map, width=750)
 
 st.header("Москва и рестораны Мишлен?")
 st.markdown("Как вы думаете, в Москве есть рестораны Мишлен?")
-st.imgage("https://avatars.mds.yandex.net/i?id=9287d4e35f021a596a4f404bb0ef8ab9-5875528-images-thumbs&n=13", width = 150)
+st.image("https://avatars.mds.yandex.net/i?id=9287d4e35f021a596a4f404bb0ef8ab9-5875528-images-thumbs&n=13", width = 150)
 st.markdown("И вы, конечно, правы! Есть, и не один!! Пожалуйста, выберите ресторан из предложенного списка")
 rest_df= pd.read_csv("rest_df.csv")
 Restaurant_name = st.selectbox(
