@@ -137,7 +137,7 @@ restaurants2_df = pd.DataFrame({'name': [Moscow_restaurants[0], Moscow_restauran
         Moscow_restaurants[6], Moscow_restaurants[7], Moscow_restaurants[8]],
                             'address': [url_self, url_bel, url_grand, url_white, url_biolog, url_sah, url_sav, url_art, url_tw] })
 
-restaurants_df = restaurants_df.merge(restaurants2_df, left_on='name', right_on='name', how = 'right')
+restaurants_df = restaurants2_df.merge(restaurants_df, left_on='name', right_on='name')
 restaurants_df
 
 
