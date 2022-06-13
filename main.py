@@ -174,6 +174,9 @@ with st.echo(code_location='below'):
 
         st.header("Москва и рестораны Мишлен?")
         st.markdown("Как вы думаете, в Москве есть рестораны Мишлен?")
+        Есть_рестораны = st.selectbox(
+                "Есть рестораны?", ("Дааа!!", "Конечно, есть!!!")
+        )
         st.image("https://avatars.mds.yandex.net/i?id=9287d4e35f021a596a4f404bb0ef8ab9-5875528-images-thumbs&n=13", width = 200)
         st.markdown("И вы, конечно, правы! Есть, и не один!! Пожалуйста, выберите ресторан из предложенного списка.")
         
