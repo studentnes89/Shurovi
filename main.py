@@ -52,7 +52,7 @@ st.markdown("А какие же регионы наиболее дорогие �
 df2=df.sort_values(by=["price"])
 fig, ax = plt.subplots(figsize=(20,10))
 ax = sns.barplot(x="region", y="price", data=df2)
-plt.title('Distribution of regions by price level', fontsize=30)
+plt.title('Distribution of regions by Michelen resturants price level', fontsize=30)
 st.pyplot(fig)
 
 ##Выбираем регион
