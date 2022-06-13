@@ -111,7 +111,7 @@ Restaurant_name = st.selectbox(
         "Restaurant_name", rest_df["name"].value_counts().index
     )
 df_selection = rest_df[(rest_df['name'] == Restaurant_name)]
-st.write(df_selection['name']
+st.write(df_selection['name'])
 urli = df_selection['url'][0:1].values[0]
 st.image(urli)
 
