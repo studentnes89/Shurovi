@@ -133,7 +133,7 @@ st_data=st_folium(map, width=750)
 
 st.header("Москва и рестораны Мишлен?")
 st.markdown("Как вы думаете, в Москве есть рестораны Мишлен?")
-st.image("https://avatars.mds.yandex.net/i?id=9287d4e35f021a596a4f404bb0ef8ab9-5875528-images-thumbs&n=13", width = 150)
+st.image("https://avatars.mds.yandex.net/i?id=9287d4e35f021a596a4f404bb0ef8ab9-5875528-images-thumbs&n=13", width = 200)
 st.markdown("И вы, конечно, правы! Есть, и не один!! Пожалуйста, выберите ресторан из предложенного списка")
 rest_df= pd.read_csv("rest_df.csv")
 Restaurant_name = st.selectbox(
@@ -163,7 +163,7 @@ st_data=st_folium(map, width=750)
 
 st.header("Дороговато?")
 st.markdown("Вы студент и пока не можете себе позволить обед в ресторане Мишлен?")
-st.image("https://avatars.mds.yandex.net/i?id=6f0f9384b53314d8e6d72b0a64ec2148-5664046-images-thumbs&n=13", width = 150)
+st.image("https://avatars.mds.yandex.net/i?id=6f0f9384b53314d8e6d72b0a64ec2148-5664046-images-thumbs&n=13", width = 200)
 st.header("Пиццаааа")
 st.markdown("Ну и сдался вам этот Мишлен. Давайте лучше закажем пиццу! Ведь пока вы думаете с друзьями над новым прибыльным проектом, вам нужно подкрепиться!!")
 
@@ -206,6 +206,7 @@ st.markdown("Пожалуйста, выберите диаметр пиццы")
 Diameter = st.columns(2)
 diameter = Diameter[0].number_input("Diameter", value = 20)
 st.markdown("Хотите побольше соуса?")
+st.image("https://avatars.mds.yandex.net/i?id=6cee412ce1888538cd65d48400d1a691-5522949-images-thumbs&n=13", width = 150)
 Extra_sauce = st.expander("Optional addings", True)
 extra_sauce = Extra_sauce.slider(
     "Extra Sauce",
@@ -382,7 +383,8 @@ for i in range(len(pizza_df_new)):
     if (pr==5) and (sa==1):
         tab.loc[2,'5'] = 1  
 tab
-
+st.markdown("в каждой категории цены встречаются пиццы со всеми категориями добавок.")
+st.markdown("Продемонстрируем это на графе.")
 list_tab = [(0, 5),(0, 6),(0, 7), (1, 5),(1, 6),(1, 7),(2, 5),(2, 6),(2, 7),(3, 5),(3, 6),(3, 7),(4, 5),(4, 6),(4, 7)]
 G = nx.Graph()
 k = nx.path_graph(8) 
