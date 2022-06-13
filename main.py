@@ -78,7 +78,6 @@ st.write("Restaurant:", restaurant)
 df_selection_2 = df_selection[df_selection["name"] ==restaurant]
 df_show = df_selection_2[["name", "region", "city", "price", "cuisine", "url"]]
 df_show
-st.markdown("После выбора, у вас появится описание ресторана"
 discrp=df_selection_2['description'][0:1].values[0]
 discrp
 st.markdown("Для того чтобы насладиться ужином в выбранном ресторане, вам необходимо будет совершить путешествие в другой город. Посмотрите в каком замечательном месте находится ваш ресторан")
