@@ -154,18 +154,7 @@ r = requests.get(entrypoint, params=params)
 data = r.json()
 data[0]['lat']
 
-for i in range(len(restaurants_df.index)):
-    entrypoint = "https://nominatim.openstreetmap.org/search"
-    params = {'q': restaurants_df['address'][i:i+1].values[0],
-          'format': 'json'}
-    r = requests.get(entrypoint, params=params)
-    data = r.json()
-    lat = data[0]['lat']
-    lon = data[0]['lon']
-    restaurants_df.loc[i,'lat'] = lat
-    restaurants_df.loc[i,'lat'] = lon
-restaurants_df
-    
+
 
 lat = df_selection['latitude']
 lon = df_selection['longitude']
