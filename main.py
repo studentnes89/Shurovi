@@ -117,8 +117,24 @@ for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
     folium.Marker(location=[lat_2, lon_2], tooltip=str(name_2), icon=folium.Icon(color = 'pink' ), legend_name="Ресторан").add_to(map)
 st_data=st_folium(map, width=900)
 
-
-
+rest_df= pd.read_csv("rest_df_23.csv")
+Restaurant_name = st.selectbox(
+        "Restaurant_name", rest_df["name"].value_counts().index
+    )
+df_selection = rest_df[(rest_df['name'] == Restaurant_name)]
+lat = rest_df['lat']
+lon = rest_df['lon']
+name = rest_df['name']
+name_2 = df_selection['name']
+lat_2 = df_selection['latitude']
+lon_2 = df_selection['longitude']
+map = folium.Map(location=[lat_2, lon_2], zoom_start = 9)
+folium.TileLayer('cartodbpositron').add_to(map)
+for lat, lon, name in zip(lat, lon, name):
+    folium.Marker(location=[lat, lon], tooltip=str(name), icon=folium.Icon(color = 'blue' ), legend_name="Ресторан").add_to(map)
+for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
+    folium.Marker(location=[lat_2, lon_2], tooltip=str(name_2), icon=folium.Icon(color = 'pink' ), legend_name="Ресторан").add_to(map)
+st_data=st_folium(map, width=900)
 
 
 
