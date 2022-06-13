@@ -54,6 +54,7 @@ st.pyplot(figure)
 st.header("Рестораны Мишлен")
 st.markdown("В данном разделе вы сможете подобрать ресторан Мишлен, который подходит именно вам")
 st.markdown("Пожалуйста, выберите регион, в котором вы бы хотели испытать гастрономическое удовольствие.")
+Region = st.selectbox(
         "Region", df["region"].value_counts().index
     )
 df_selection = df[(df['region'] == Region)]
