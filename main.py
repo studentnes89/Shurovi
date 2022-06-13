@@ -26,16 +26,15 @@ st.write("Введите ваше имя")
 name = st.text_input("Your name", key="name", value="дорогой друг")
 a = print_hello(name)
 st.header("В данном приложении вы узнаете немного о ресторанах Мишлен, сможете выбрать подходящий именно для Вас в любой точке мира, или же в любимой Москве. А также даже попробуете заказать пиццу")
-### вафля
 
 df= pd.read_csv("df_23.csv")
 st.markdown("Давайте побольше узнаем о ценовых категориях в ресторанах Мишлен. Обратите внимание на обозначения среднего чека на человека.")
 st.markdown("Обозначения: "1" : $1-$10;   "11" : $11-$50;   "111" : $51-$80;   "1111" : $81-$120;   "11111" : $121-$300")
-
+st.markdown("Итак, на следующем изображении вы можете увидеть, сколько ресторанов в каждой ценовой кастегории")
+### построение визуализации (вафля)
 df_vaf = df.groupby('price').size().reset_index(name='counts')
 n_categories = df_vaf.shape[0]
 colors = [plt.cm.inferno_r(i/float(n_categories)) for i in range(n_categories)]
-
 figure = plt.figure(
     FigureClass=Waffle,
     plots={
@@ -52,8 +51,10 @@ figure = plt.figure(
 )
 st.pyplot(figure)
 
-
 ##Выбираем регион
+
+st.header("Рестораны Мишлен")
+
 
 Region = st.selectbox(
         "Region", df["region"].value_counts().index
