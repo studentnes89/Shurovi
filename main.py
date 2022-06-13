@@ -136,7 +136,9 @@ url_tw = 'https://marketmedia.ru/upload/medialibrary/a5a/a5a817596e1568dfa645461
 restaurants2_df = pd.DataFrame({'name': [Moscow_restaurants[0], Moscow_restaurants[1], Moscow_restaurants[2], Moscow_restaurants[3], Moscow_restaurants[4], Moscow_restaurants[5], 
         Moscow_restaurants[6], Moscow_restaurants[7], Moscow_restaurants[8]],
                             'address': [url_self, url_bel, url_grand, url_white, url_biolog, url_sah, url_sav, url_art, url_tw] })
-restaurants2_df
+
+restaurants_df = restaurants_df.merge(restaurants2_df, left_on='name', right_on='name', how = 'right')
+restaurants_df
 
 
 pizza_df=pd.read_csv("pizza_df.csv")
