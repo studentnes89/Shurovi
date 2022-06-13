@@ -145,6 +145,7 @@ restaurants_df = restaurants_df.rename (columns = {'address_y': 'address'})
 restaurants_df = restaurants_df[['name', 'url', 'address']]
 restaurants_df["lat"] = ""
 restaurants_df["lon"] = ""
+restaurants_df
 
 
 entrypoint = "https://nominatim.openstreetmap.org/search"
