@@ -104,7 +104,7 @@ for lat, lon, name in zip(lat, lon, name):
     folium.Marker(location=[lat, lon], tooltip=str(name), icon=folium.Icon(color = 'blue' ), legend_name="Ресторан").add_to(map)
 for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
     folium.Marker(location=[lat_2, lon_2], tooltip=str(name_2), icon=folium.Icon(color = 'pink' ), legend_name="Ресторан").add_to(map)
-st_data=st_folium(map, width=900)
+st_data=st_folium(map, width=750)
 
 rest_df= pd.read_csv("rest_df.csv")
 Restaurant_name = st.selectbox(
@@ -125,7 +125,7 @@ for lat, lon, name in zip(lat, lon, name):
     folium.Marker(location=[lat, lon], tooltip=str(name), icon=folium.Icon(color = 'blue' ), legend_name="Ресторан").add_to(map)
 for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
     folium.Marker(location=[lat_2, lon_2], tooltip=str(name_2), icon=folium.Icon(color = 'pink' ), legend_name="Ресторан").add_to(map)
-st_data=st_folium(map, width=900)
+st_data=st_folium(map, width=750)
 
 
 
