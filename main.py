@@ -140,6 +140,9 @@ restaurants2_df = pd.DataFrame({'name': [Moscow_restaurants[0], Moscow_restauran
 restaurants_df= pd.read_csv("restaurants_df.csv")
 
 restaurants_df = restaurants2_df.merge(restaurants_df, left_on='name', right_on='name')
+restaurants_df = restaurants_df.rename (columns = {'address_x': 'url'})
+restaurants_df = restaurants_df.rename (columns = {'address_y': 'address'})
+restaurants_df = restaurants_df[['name', 'url', 'address']]
 restaurants_df
 
 
