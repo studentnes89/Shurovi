@@ -23,12 +23,12 @@ def print_hello(name="World"):
 st.write("Введите ваше имя")
 name = st.text_input("Your name", key="name", value="дорогой друг")
 a = print_hello(name)
-st.header("В данном приложении вы узнаете немного о ресторанах Мишлен, сможете выбрать подходящий именно для Вас в любой точке мира, или же в любимой Москве. А также даже попробуете заказать пиццу")
+st.markdown("В данном приложении вы узнаете немного о ресторанах Мишлен, сможете выбрать подходящий именно для Вас в любой точке мира, или же в любимой Москве. А также даже попробуете заказать пиццу")
 
 df= pd.read_csv("df_23.csv")
 st.markdown("Давайте побольше узнаем о ценовых категориях в ресторанах Мишлен. Обратите внимание на обозначения среднего чека на человека.")
 st.markdown("Обозначения: 1 : $1-$10;   11 : $11-$50;   111 : $51-$80;   1111 : $81-$120;   11111 : $121-$300")
-st.markdown("Итак, на следующем изображении вы можете увидеть, сколько ресторанов в каждой ценовой кастегории")
+st.markdown("Итак, на следующем изображении вы можете увидеть, сколько ресторанов в каждой ценовой категории")
 ### построение визуализации (вафля)
 df_vaf = df.groupby('price').size().reset_index(name='counts')
 n_categories = df_vaf.shape[0]
@@ -48,11 +48,11 @@ figure = plt.figure(
     figsize=(16, 9)
 )
 st.pyplot(figure)
-
+st.markdown("А какие же ригионы наиболее дорогии и наоборот?")
 df2=df.sort_values(by=["price"])
-fig, ax = plt.subplots(figsize=(16,10))
+fig, ax = plt.subplots(figsize=(16,20))
 ax = sns.barplot(x="region", y="price", data=df2)
-plt.title('Distribution of regions by price level from the smallest to the largest', fontsize=30)
+plt.title('Distribution of regions by price level', fontsize=30)
 st.pyplot(fig)
 
 ##Выбираем регион
