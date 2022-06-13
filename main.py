@@ -71,7 +71,7 @@ Cuisine = st.selectbox(
 df_selection = df[(df['region'] == Region) & (df['cuisine'] == Cuisine)]
 
 st.markdown("Пожалуйста, выберите средний чек на человека. Выбор будет доступен если в выбранном вами регионе с определенной кухней представлены рестораны разных ценовых категорий")
-st.image('https://avatars.mds.yandex.net/i?id=630bf6a72ffd8e17c86e4908d3cddbc0-4230863-images-thumbs&n=13', width =50)
+st.image('https://avatars.mds.yandex.net/i?id=630bf6a72ffd8e17c86e4908d3cddbc0-4230863-images-thumbs&n=13', width = 150)
 average_check = st.radio("Select option", df_selection['price'].unique())
 st.write("Average check:", average_check)
 df_selection = df_selection[df_selection["price"] ==average_check]
@@ -112,9 +112,9 @@ discrp
 st.header("Географическое расположение ресторана")
 st.markdown("Давайте же посмотрим на карте, где выбранный вами ресторан находится на карте. Он выделен розовым маркером.")
 st.header("Ааа, о ужас!")
-st.image('https://avatars.mds.yandex.net/i?id=158d4ddefbcb6b7b16a2354feb1bd061-4971670-images-thumbs&n=13', width=180)
+st.image('https://avatars.mds.yandex.net/i?id=158d4ddefbcb6b7b16a2354feb1bd061-4971670-images-thumbs&n=13', width = 250)
 st.markdown("Вы проделали долгий путь, приехали в ресторан, но вам там не понравилось. Очент грустно((( Что же делать?")
-st.image('https://avatars.mds.yandex.net/i?id=20ccdf5b3f2bb81bdd399e208e520ac4-5460273-images-thumbs&n=13', width=180)
+st.image('https://avatars.mds.yandex.net/i?id=20ccdf5b3f2bb81bdd399e208e520ac4-5460273-images-thumbs&n=13', width = 250)
 st.markdown("Не переживайте, мы и это продумали! На карте также отмечены рестораны Мишлен поблизости (в регионах, где их несколько). Они выделены голубыми маркерами. Если вы наведете курсор на маркер, то высветится название ресторана! Да, Да, Всё для вашего удобства!") 
 ###Карта
 lat = df_selection['latitude']
@@ -132,8 +132,9 @@ for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
 st_data=st_folium(map, width=750)
 
 st.header("Москва и рестораны Мишлен?")
-st.markdown("Как вы думаете, в Москве есть рестораны Мишлен? И вы, конечно, правы! Есть, и не один!!")
-st.markdown("Пожалуйста, выберите ресторан из предложенного списка")
+st.markdown("Как вы думаете, в Москве есть рестораны Мишлен?")
+st.imgage("https://avatars.mds.yandex.net/i?id=9287d4e35f021a596a4f404bb0ef8ab9-5875528-images-thumbs&n=13", width = 150)
+st.markdown("И вы, конечно, правы! Есть, и не один!! Пожалуйста, выберите ресторан из предложенного списка")
 rest_df= pd.read_csv("rest_df.csv")
 Restaurant_name = st.selectbox(
         "Restaurant_name", rest_df["name"].value_counts().index
@@ -144,7 +145,7 @@ st.markdown("Правда, волшебная атмосфера?")
 st.image(df_selection['url'][0:1].values[0])
 
 st.header("Вы не москвич? И переживаете, что не сможете найти свое удовольствие?")
-st.markdown("Да не переживайте, автор проекта все продумал!! На карте ниже вы уидете, где находятся эти волшебные места. При этом выбранный вами ресторан будет подсвечиваться розовым, а остальные будут оставаться голубыми, также навядя курсор на марке, высветится название")
+st.markdown("Да не переживайте, автор проекта все продумал!! На карте ниже вы увидете, где находятся эти волшебные места. При этом выбранный вами ресторан будет подсвечиваться розовым, а остальные будут оставаться голубыми, также навядя курсор на марке, высветится название")
 
 lat = rest_df['lat']
 lon = rest_df['lon']
@@ -162,6 +163,7 @@ st_data=st_folium(map, width=750)
 
 st.header("Дороговато?")
 st.markdown("Вы студент и пока не можете себе позволить обед в ресторане Мишлен?")
+st.image("https://avatars.mds.yandex.net/i?id=6f0f9384b53314d8e6d72b0a64ec2148-5664046-images-thumbs&n=13", width = 150)
 st.header("Пиццаааа")
 st.markdown("Ну и сдался вам этот Мишлен. Давайте лучше закажем пиццу! Ведь пока вы думаете с друзьями над новым прибыльным проектом, вам нужно подкрепиться!!")
 
@@ -211,6 +213,7 @@ extra_sauce = Extra_sauce.slider(
     max_value = 10.0
 )
 st.markdown("Или может быть любите много сыра?")
+st.image("https://avatars.mds.yandex.net/i?id=7f614ca37974fa56c9a4dd4272c222b0-7047516-images-thumbs&n=13", width = 150)
 Extra_cheese = st.expander("Optional addings", True)
 extra_cheese = Extra_cheese.slider(
     "Extra cheese",
@@ -218,6 +221,7 @@ extra_cheese = Extra_cheese.slider(
     max_value = 10.0
 )
 st.markdown("А грибочки?")
+st.image("https://avatars.mds.yandex.net/i?id=7341e777084623275cda374c10155e0d-6974903-images-thumbs&n=13", width = 150)
 Extra_mushrooms = st.expander("Optional addings", True)
 extra_mushrooms = Extra_mushrooms.slider(
     "Extra mushrooms",
@@ -232,6 +236,7 @@ price = model.intercept_ + Company_raiting*model.coef_[0] + diameter*model.coef_
 url_sir = "http://tuimazy-sushi.ru/uploads/newNew/0.jpg"
 url_gribi = "https://sakura-rolls31.ru/image/cache/catalog/gubkin/grib-1000x700.jpg"
 url_sous = "https://eatwell101.club/wp-content/uploads/2019/09/best-marinara-sauce-for-pizza-inspirational-pizza-sauce-vs-marinara-surprising-similarities-and-of-best-marinara-sauce-for-pizza.jpg"
+url_pysto = "https://avatars.mds.yandex.net/i?id=b7d3653f0d0bd0232886b3be4855f053-5232716-images-thumbs&n=13"
 ##Доп картинки
 if (extra_cheese >0) and (extra_sauce == 0) and (extra_mushrooms == 0):
     st.image(url_sir, width=300)
@@ -245,6 +250,9 @@ if (extra_cheese >0) and (extra_sauce > 0) and (extra_mushrooms == 0):
     st.image(url_sir, width=300)
 if (extra_cheese == 0) and (extra_sauce > 0) and (extra_mushrooms == 0):
     st.image(url_sous, width=300)
+if (extra_cheese ==0) and (extra_sauce == 0) and (extra_mushrooms == 0):
+    st.image(url_pysto, width=300)
+    st.markdown("Точно хочешь без начинки?")
 st.markdown("Price:")
 st.write(price)
 
@@ -265,14 +273,8 @@ for i in range(len(pizza_df_new.index)):
 st.header("Приятного аппетита!")
 
 st.header("А что внутри?")
-st.markdown("Интересно, как программа предсказывает цену? Это работает с помощью машинного обучения. Давайте убедимся, что между параметрами есть взаимосвязь")
+st.markdown("Интересно, как программа предсказывает цену? Это работает с помощью машинного обучения. Давайте убедимся, что между параметрами есть взаимосвязь, например, между диаметром и ценой")
 
-fig = plt.figure(figsize=(50, 20), dpi= 80)
-sns.heatmap(pizza_df.corr(), xticklabels=pizza_df.corr().columns, yticklabels=pizza_df.corr().columns, cmap='RdYlGn', center=0, annot=True)
-plt.title('Correlogram of pizza', fontsize=60)
-plt.xticks(fontsize=15)
-plt.yticks(fontsize=15)
-st.pyplot(fig)
 
 fig, ax = plt.subplots(figsize=(30,20), dpi= 80)    
 sns.stripplot(pizza_df.diameter, pizza_df.price, size=20, ax=ax)
@@ -282,7 +284,104 @@ plt.yticks(fontsize=30)
 ax.set_xlabel("Diameter", fontsize=30)
 ax.set_ylabel("Price", fontsize=30)
 st.pyplot(fig)
+st.markdown("Да, связь же есть!")
 
+st.markdown("Интересно, а в каждой категории цены встречаются пиццы со всеми категориями добавок?")
+st.markdown("Чтобы это узнать преобразую таблицу с данными и выведу её на экран")
+st.markdown("Идею можете посмотреть в коде с хештегом: преобразование таблицы с пиццой.")
+pizza_df_new = pizza_df.copy()
+for i in range(len(pizza_df_new.index)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    if (pr>=69) and (pr<204):
+        pri = 1
+    elif (pr>=204) and (pr<339):
+        pri = 2
+    elif (pr>=339) and (pr<474):
+        pri = 3
+    elif (pr>=474) and (pr<609):
+        pri = 4
+    elif (pr>=609) and (pr<=744):
+        pri = 5
+    pizza_df_new.loc[i,'price'] = pri
+tab = pd.DataFrame({'name': ['sauce', 'cheese', 'mushrooms'], '1': [0,0,0], '2': [0,0,0], '3': [0,0,0], '4': [0,0,0], '5': [0,0,0] })
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_sauce'][i:i+1].values[0]
+    if (pr==1) and (sa==1):
+        tab.loc[0,'1'] = 1
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_sauce'][i:i+1].values[0]
+    if (pr==2) and (sa==1):
+        tab.loc[0,'2']=1
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_sauce'][i:i+1].values[0]
+    if (pr==3) and (sa==1):
+        tab.loc[0,'3'] = 1     
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_sauce'][i:i+1].values[0]
+    if (pr==4) and (sa==1):
+        tab.loc[0,'4'] = 1  
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_sauce'][i:i+1].values[0]
+    if (pr==5) and (sa==1):
+        tab.loc[0,'5'] = 1  
+        
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_cheese'][i:i+1].values[0]
+    if (pr==1) and (sa==1):
+        tab.loc[1,'1']= 1
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_cheese'][i:i+1].values[0]
+    if (pr==2) and (sa==1):
+        tab.loc[1,'2']= 1
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_cheese'][i:i+1].values[0]
+    if (pr==3) and (sa==1):
+        tab.loc[1,'3'] = 1     
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_cheese'][i:i+1].values[0]
+    if (pr==4) and (sa==1):
+        tab.loc[1,'4'] = 1  
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_cheese'][i:i+1].values[0]
+    if (pr==5) and (sa==1):
+        tab.loc[1,'5'] = 1 
+
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_mushrooms'][i:i+1].values[0]
+    if (pr==1) and (sa==1):
+        tab.loc[2,'1'] = 1
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_mushrooms'][i:i+1].values[0]
+    if (pr==2) and (sa==1):
+        tab.loc[2,'2'] = 1
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_mushrooms'][i:i+1].values[0]
+    if (pr==3) and (sa==1):
+        tab.loc[2,'3'] = 1     
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_mushrooms'][i:i+1].values[0]
+    if (pr==4) and (sa==1):
+        tab.loc[2,'4'] = 1  
+for i in range(len(pizza_df_new)):
+    pr = pizza_df_new['price'][i:i+1].values[0]
+    sa=pizza_df_new['extra_mushrooms'][i:i+1].values[0]
+    if (pr==5) and (sa==1):
+        tab.loc[2,'5'] = 1  
+tab
 
 list_tab = [(0, 5),(0, 6),(0, 7), (1, 5),(1, 6),(1, 7),(2, 5),(2, 6),(2, 7),(3, 5),(3, 6),(3, 7),(4, 5),(4, 6),(4, 7)]
 G = nx.Graph()
