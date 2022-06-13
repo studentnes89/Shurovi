@@ -117,42 +117,6 @@ for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
     folium.Marker(location=[lat_2, lon_2], tooltip=str(name_2), icon=folium.Icon(color = 'pink' ), legend_name="Ресторан").add_to(map)
 st_data=st_folium(map, width=900)
 
-f = open("textik.txt")
-textik = f.read()
-Moscow_restaurants = re.findall("\d.«([^»]+)»", textik)
-st.write(Moscow_restaurants[0], Moscow_restaurants[1], Moscow_restaurants[2], Moscow_restaurants[3], Moscow_restaurants[4], Moscow_restaurants[5], 
-        Moscow_restaurants[6], Moscow_restaurants[7], Moscow_restaurants[8])
-f.close()
-url_self = 'https://ennew.restoran.ru/upload/resize_cache/iblock/3fc/1000_667_1ecda9200b395d49b21a355839cb65e9f/mg_9587_1282.jpg'
-url_bel = 'https://www.ok-magazine.ru/files/media_wysiwyg/interier3.jpg'
-url_grand = 'https://avatars.mds.yandex.net/get-altay/1879888/2a0000016c70c5666ade98f7629277ac023c/XXXL'
-url_white = 'http://top5-top10.ru/wp-content/uploads/2021/01/«White-Rabbit».jpg'
-url_biolog = 'https://wheretoeat.ru/upload/medialibrary/3d4/3d4e42c15f8a85ee0550d08eae9b63b9.jpg'
-url_sah = 'https://www.restoran.ru/upload/resize_cache/iblock/e7b/1000_668_11a88371ca9e7ba72ce6f5767ba9eff1a/zal1_007bfb.jpg'
-url_sav = 'https://top15moscow.ru/storage/news/August2018/zXMgfurmMrLCSewzLryv.jpg'
-url_art = 'https://outinbrum.files.wordpress.com/2016/02/out-in-brum-adams-restaurant-chefs-table.jpg'
-url_tw = 'https://marketmedia.ru/upload/medialibrary/a5a/a5a817596e1568dfa645461668dbc3db.jpg'
-
-restaurants2_df = pd.DataFrame({'name': [Moscow_restaurants[0], Moscow_restaurants[1], Moscow_restaurants[2], Moscow_restaurants[3], Moscow_restaurants[4], Moscow_restaurants[5], 
-        Moscow_restaurants[6], Moscow_restaurants[7], Moscow_restaurants[8]],
-                            'address': [url_self, url_bel, url_grand, url_white, url_biolog, url_sah, url_sav, url_art, url_tw] })
-
-rest_df= pd.read_csv("restaurants_df.csv")
-
-rest_df = restaurants2_df.merge(rest_df, left_on='name', right_on='name')
-rest_df = rest_df.rename (columns = {'address_x': 'url'})
-rest_df = rest_df.rename (columns = {'address_y': 'address'})
-rest_df = rest_df[['name', 'url', 'address']]
-rest_df["lat"] = ""
-rest_df["lon"] = ""
-
-entrypoint = "https://nominatim.openstreetmap.org/search"
-params = {'q': 'Москва, Моховая, 15',
-          'format': 'json'}
-r = requests.get(entrypoint, params=params)
-data = r.json()
-data[0]['lat']
-
 
 
 
