@@ -99,10 +99,10 @@ with st.echo(code_location='below'):
         r = requests.get(ssilka)
         t = BeautifulSoup(r.text, 'html.parser')
         for link in t("img"):
-                a = link.get('src')
+            a = link.get('src')
         if (a is None) == False:
-                itog = a
-                ind = 1
+            itog = a
+            ind = 1
         if ind == 1:
             break
         url = "https:"+ itog
