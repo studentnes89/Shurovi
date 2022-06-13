@@ -71,7 +71,7 @@ Cuisine = st.selectbox(
 df_selection = df[(df['region'] == Region) & (df['cuisine'] == Cuisine)]
 
 st.markdown("Пожалуйста, выберите средний чек на человека. Выбор будет доступен если в выбранном вами регионе с определенной кухней представлены рестораны разных ценовых категорий")
-st.image('https://avatars.mds.yandex.net/i?id=630bf6a72ffd8e17c86e4908d3cddbc0-4230863-images-thumbs&n=13', width = 150)
+st.image('https://avatars.mds.yandex.net/i?id=630bf6a72ffd8e17c86e4908d3cddbc0-4230863-images-thumbs&n=13', width = 200)
 average_check = st.radio("Select option", df_selection['price'].unique())
 st.write("Average check:", average_check)
 df_selection = df_selection[df_selection["price"] ==average_check]
