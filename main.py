@@ -112,8 +112,8 @@ Restaurant_name = st.selectbox(
     )
 df_selection = rest_df[(rest_df['name'] == Restaurant_name)]
 st.write(df_selection['name']
-url = df_selection['url']
-st.image(url)
+urli = df_selection['url']
+st.image(urli)
 
 lat = rest_df['lat']
 lon = rest_df['lon']
