@@ -90,18 +90,7 @@ for link in t("img"):
         break
 url = "https:"+ itog
 st.image(url)
-##Карта
-#loc = 'cit'
-#location = geocode(loc, provider="nominatim" , user_agent = 'my_request')
-#point = location.geometry.iloc[0] 
 
-#data= pd.DataFrame({"longitude":[point.x], "latitude":[point.y]})
-
-#mapit = folium.Map( location=[0, 0], zoom_start=1 ) 
-#for lat , lon in zip(data.latitude , data.longitude): 
-#        folium.Marker( location=[ lat,lon ], fill_color='#43d9de', radius=8 ).add_to( mapit ) 
-#st_data = st_folium(mapit, width = 725)
-#st_data
 ###Карта
 lat = df_selection['latitude']
 lon = df_selection['longitude']
@@ -122,13 +111,16 @@ Restaurant_name = st.selectbox(
         "Restaurant_name", rest_df["name"].value_counts().index
     )
 df_selection = rest_df[(rest_df['name'] == Restaurant_name)]
+st.write(df_selection['name']
+st.image(df_selection['url'])
+
 lat = rest_df['lat']
 lon = rest_df['lon']
 name = rest_df['name']
 name_2 = df_selection['name']
 lat_2 = df_selection['lat']
 lon_2 = df_selection['lon']
-map = folium.Map(location = [55.75, 37.61], zoom_start = 11)
+map = folium.Map(location = [55.75, 37.61], zoom_start = 15)
 for lat, lon, name in zip(lat, lon, name):
     folium.Marker(location=[lat, lon], tooltip=str(name), icon=folium.Icon(color = 'blue' ), legend_name="Ресторан").add_to(map)
 for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
