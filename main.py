@@ -179,6 +179,7 @@ with st.echo(code_location='below'):
         
         
         
+        
         ## Создание селект бокса
         Restaurant_name = st.selectbox(
                 "Restaurant_name", rest_df["name"].value_counts().index
