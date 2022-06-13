@@ -143,7 +143,39 @@ restaurants_df = restaurants2_df.merge(restaurants_df, left_on='name', right_on=
 restaurants_df = restaurants_df.rename (columns = {'address_x': 'url'})
 restaurants_df = restaurants_df.rename (columns = {'address_y': 'address'})
 restaurants_df = restaurants_df[['name', 'url', 'address']]
+restaurants_df["lat"] = ""
+restaurants_df["lon"] = ""
+
+
+entrypoint = "https://nominatim.openstreetmap.org/search"
+for i in range(len(restaurants_df.index)):
+    params = {'q': 'restaurants_df['address'][i:i+1].values[0]',
+          'format': 'json'}
+    r = requests.get(entrypoint, params=params)
+    data = r.json()
+    lat = data[0]['lat']
+    lon = data[0]['lon']
+    restaurants_df.loc[i,'lat'] = lat
+    restaurants_df.loc[i,'lat'] = lon
 restaurants_df
+    
+
+lat = df_selection['latitude']
+lon = df_selection['longitude']
+name = df_selection['name']
+name_2 = df_selection_2['name']
+lat_2 = df_selection_2['latitude']
+lon_2 = df_selection_2['longitude']
+map = folium.Map(location=[lat_2, lon_2], zoom_start = 9)
+folium.TileLayer('cartodbpositron').add_to(map)
+for lat, lon, name in zip(lat, lon, name):
+    folium.Marker(location=[lat, lon], tooltip=str(name), icon=folium.Icon(color = 'blue' ), legend_name="Ресторан").add_to(map)
+for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
+    folium.Marker(location=[lat_2, lon_2], tooltip=str(name_2), icon=folium.Icon(color = 'pink' ), legend_name="Ресторан").add_to(map)
+st_data=st_folium(map, width=900)
+
+
+
 
 
 pizza_df=pd.read_csv("pizza_df.csv")
