@@ -268,7 +268,7 @@ plt.yticks(fontsize=15)
 st.pyplot(fig)
 
 st.markdown("Так, так, вроде что-то есть! Посмотрим на наиболее коррелированные переменные")
-sns.set_style("pink")
+sns.set_style("white")
 di = sns.lmplot(x="diameter", y="price", data=pizza_df)
 st.pyplot(di)
 
