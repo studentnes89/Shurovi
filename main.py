@@ -132,6 +132,7 @@ st_data=st_folium(map, width=750)
 
 
 
+
 pizza_df=pd.read_csv("pizza_df.csv")
 pizza_df['company'] = pizza_df['company'].str.replace('A', "5")
 pizza_df['company'] = pizza_df['company'].str.replace('B', "4")
