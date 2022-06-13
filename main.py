@@ -120,7 +120,7 @@ name = rest_df['name']
 name_2 = df_selection['name']
 lat_2 = df_selection['lat']
 lon_2 = df_selection['lon']
-map = folium.Map(location = [55.75, 37.61], zoom_start = 12.5)
+map = folium.Map(location = [lat_2, lon_2], zoom_start = 12.5)
 for lat, lon, name in zip(lat, lon, name):
     folium.Marker(location=[lat, lon], tooltip=str(name), icon=folium.Icon(color = 'blue' ), legend_name="Ресторан").add_to(map)
 for lat_2, lon_2, name_2 in zip(lat_2, lon_2, name_2):
