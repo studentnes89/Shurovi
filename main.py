@@ -63,7 +63,7 @@ with st.echo(code_location='below'):
         plt.title('Distribution of regions by Michelen resturants price level', fontsize=30)
         st.pyplot(fig)
 
-        ## Создание селект бокса
+        ## Создание селект бокса (разные типы)
         st.header("Рестораны Мишлен")
         st.markdown("В данном разделе вы сможете подобрать ресторан Мишлен, который подходит именно вам.")
         st.markdown("Пожалуйста, выберите регион, в котором вы бы хотели испытать гастрономическое удовольствие.")
@@ -215,13 +215,36 @@ with st.echo(code_location='below'):
         ##conn,
         ##)
         ##rest_df.to_csv('rest2_df.csv')
-        
-        
+        ##import requests
+        ##import re
+        ##import numpy as np
+        ##Moscow_restaurants = re.findall("\d.«([^»]+)»", s)
+        ##restaurants2_df = pd.DataFrame({'name': [Moscow_restaurants[0], Moscow_restaurants[1], Moscow_restaurants[2], Moscow_restaurants[3], Moscow_restaurants[4], Moscow_restaurants[5], 
+        ##Moscow_restaurants[6], Moscow_restaurants[7], Moscow_restaurants[8]],
+                            'address': [url_self, url_bel, url_grand, url_white, url_biolog, url_sah, url_sav, url_art, url_tw] })
+
+        ##rest_df= pd.read_csv("rest2_df.csv")
+
+        ##rest_df = restaurants2_df.merge(rest_df, left_on='name', right_on='name')
+        ##rest_df = rest_df.rename (columns = {'address_x': 'url'})
+        ##rest_df = rest_df.rename (columns = {'address_y': 'address'})
+        ##rest_df = rest_df[['name', 'url', 'address']]
+        ##rest_df["lat"] = ""
+        ##rest_df["lon"] = ""
+        ##for i in range(len(rest_df.index)):
+        ##entrypoint = "https://nominatim.openstreetmap.org/search"
+        ##a = rest_df['address'][i:i+1].values[0]
+        ##params = {'q': a,
+        ##  'format': 'json'}
+        ##r = requests.get(entrypoint, params=params)
+        ##data = r.json()
+        ##lat = data[0]['lat']
+        ##lon = data[0]['lon']
+        ##rest_df.loc[i,'lat'] = lat
+        ##rest_df.loc[i,'lon'] = lon
+        ##rest_df.to_csv('rest_df.csv')
+ 
         rest_df= pd.read_csv("rest_df.csv")
-        
-        
-        
-        
         
         ## Создание селект бокса
         Restaurant_name = st.selectbox(
@@ -237,7 +260,7 @@ with st.echo(code_location='below'):
         st.header("Вы не москвич? И переживаете, что не сможете найти свое удовольствие?")
         st.markdown("Да не переживайте, автор проекта все продумал!! На карте ниже вы увидете, где находятся эти волшебные места. При этом выбранный вами ресторан будет подсвечиваться розовым, а остальные будут оставаться голубыми, также навядя курсор на маркер, высветится название.")
 
-        ### 
+        ### Создание карты другого вида, отличается от первой
         lat = rest_df['lat']
         lon = rest_df['lon']
         name = rest_df['name']
@@ -258,7 +281,7 @@ with st.echo(code_location='below'):
         st.header("Пиццаааа")
         st.markdown("Ну и сдался вам этот Мишлен. Давайте лучше закажем пиццу! Ведь пока вы думаете с друзьями над новым прибыльным проектом, вам нужно подкрепиться!!")
 
-
+        ##Редактирование таблицы
         pizza_df=pd.read_csv("pizza_df.csv")
         pizza_df['company'] = pizza_df['company'].str.replace('A', "5")
         pizza_df['company'] = pizza_df['company'].str.replace('B', "4")
@@ -289,7 +312,8 @@ with st.echo(code_location='below'):
         pizza_df["price"] = pizza_df.price.mul(3)
         st.markdown("Представляете, вы сможете выбрать пиццу с любыми параметрами и из любой компании, ну не сказка ли?")
         st.markdown("Пожалуйста, выберите рейтинг компании, где 5 - наивысший, 1 - наименьший")
-
+        
+        ##Создание селект бокса
         Company_raiting = st.selectbox(
                 "Company", (5, 4, 3, 2, 1)
         )
@@ -320,7 +344,8 @@ with st.echo(code_location='below'):
             min_value = 0.0,
             max_value = 10.0
         )
-
+        
+        ##Машинное обучение
         model = LinearRegression()
         model.fit(pizza_df.drop(columns=["price"]), pizza_df["price"])
         price = model.intercept_ + Company_raiting*model.coef_[0] + diameter*model.coef_[1] + extra_sauce*model.coef_[2] +extra_cheese*model.coef_[3] + extra_mushrooms*model.coef_[4]
@@ -347,7 +372,8 @@ with st.echo(code_location='below'):
             st.markdown("Точно хочешь без начинки?")
         st.markdown("Price:")
         st.write(round(price))
-
+        
+        ##Преобразование таблицы для последующего анализа
         pizza_df_new = pizza_df.copy()
         for i in range(len(pizza_df_new.index)):
             pr = pizza_df_new['price'][i:i+1].values[0]
@@ -380,7 +406,7 @@ with st.echo(code_location='below'):
 
         st.markdown("Интересно, а в каждой категории цены встречаются пиццы со всеми категориями добавок?")
         st.markdown("Чтобы это узнать преобразую таблицу с данными и выведу её на экран")
-        st.markdown("Идею можете посмотреть в коде с хештегом: преобразование таблицы с пиццей.")
+        st.markdown("Идею можете посмотреть в коде с хештегом: преобразование таблицы, строка 376.")
         pizza_df_new = pizza_df.copy()
         for i in range(len(pizza_df_new.index)):
             pr = pizza_df_new['price'][i:i+1].values[0]
@@ -477,6 +503,7 @@ with st.echo(code_location='below'):
         st.markdown("В каждой категории цены встречаются пиццы со всеми категориями добавок.")
         st.markdown("Продемонстрируем это на графе.")
         list_tab = [(0, 5),(0, 6),(0, 7), (1, 5),(1, 6),(1, 7),(2, 5),(2, 6),(2, 7),(3, 5),(3, 6),(3, 7),(4, 5),(4, 6),(4, 7)]
+        ##Построение графа
         G = nx.Graph()
         k = nx.path_graph(8) 
         G.add_nodes_from(k, color ='blue')
