@@ -95,10 +95,10 @@ with st.echo(code_location='below'):
         st.markdown("Для того чтобы насладиться ужином в выбранном ресторане, вам необходимо будет совершить путешествие в другой город. Посмотрите в каком замечательном месте находится ваш ресторан.")
         st.markdown("P.S. (Данные описания и картинки города я получаю с помощью веб-скреппинга, однако не у всех ресторанов на сате Мишлен есть описание и картинка с достопримечательностями города. Попробуйте выбрать Австрию, Тайпей, Грецию чтобы насладиться также описанием и фотографиями доспримечательностей)")
 
-        """
-        Веб-скреппинг с помощью BeautifulSoap. А также новой изученной библиотеки wikipedia. Программа из селект бокса выбирает название, заходит на википедию,
-        забивает название города в поиске, если точного совпадения нет, переходит по первой ссылке, и берет ссылку на картинку
-        """
+        
+        ##Веб-скреппинг с помощью BeautifulSoap. А также новой изученной библиотеки wikipedia. Программа из селект бокса выбирает название, заходит на википедию,
+        ##забивает название города в поиске, если точного совпадения нет, переходит по первой ссылке, и берет ссылку на картинку
+        
         cit = df_selection['city'][0:1].values[0]
         cit = wikipedia.search(cit)[0]
         st.write(cit)
@@ -119,35 +119,34 @@ with st.echo(code_location='below'):
         st.write("Описание ресторана")
         discrp
         
-        """
-        Строчка выше это описание ресторана. Его мы получаем с сайта Мишлен с помощью Selenium.
-        Илья написал, что Selenium не подключается к streamlit, поэтому эту часть я сделала в Jupiter. 
-        Код я прикреплю сюда. 
-        Код выбирал ссылку выбранного вами ресторана из селект бокса, проходил по ссылке и брал описание ресторана со страницы
-        конкретного ресторана с сайта Мишлен.
-        Код:
-        pip install selenium
-        from selenium import webdriver
-        from selenium.webdriver.common.keys import Keys
-        from selenium.webdriver.common.by import By
-        driver = webdriver.Chrome('/Users/ASUS/Desktop/Универ/chromedriver')
-        df= pd.read_csv("data_one.csv")
-        df2= df.dropna()
-        df_new = df2[["name", "region", "city", "price", "cuisine", "url", "latitude", "longitude"]]
-        df_new["description"] = ""
-        df_new['price'] = df_new['price'].str.replace('$', "1")
-        df_new = df_new.reset_index(drop=True)
-        for i in range(len(df_new.index)):
-                print(i)
-                driver.get(df_new['url'][i:i+1].values[0])
-                diva=driver.find_elements(By.CSS_SELECTOR, "div.js-show-description-text")
-                if (len(diva) == 0) == False:
-                        div = driver.find_elements(By.CSS_SELECTOR, "div.js-show-description-text")[0]
-                        name= div.find_element(By.TAG_NAME, "p").get_attribute("innerHTML")
-                        df_new.loc[i,'description'] = name
-         df_new.to_csv('df_23.csv')
+        
+        ##Строчка выше это описание ресторана. Его мы получаем с сайта Мишлен с помощью Selenium.
+        ##Илья написал, что Selenium не подключается к streamlit, поэтому эту часть я сделала в Jupiter. 
+        ##Код я прикреплю сюда. 
+        ##Код выбирал ссылку выбранного вами ресторана из селект бокса, проходил по ссылке и брал описание ресторана со страницы
+        ##конкретного ресторана с сайта Мишлен.
+        ##Код:
+        ##pip install selenium
+        ##from selenium import webdriver
+        ##from selenium.webdriver.common.keys import Keys
+        ##from selenium.webdriver.common.by import By
+        ##driver = webdriver.Chrome('/Users/ASUS/Desktop/Универ/chromedriver')
+        ##df= pd.read_csv("data_one.csv")
+        ##df2= df.dropna()
+        ##df_new = df2[["name", "region", "city", "price", "cuisine", "url", "latitude", "longitude"]]
+        ##df_new["description"] = ""
+        ##df_new['price'] = df_new['price'].str.replace('$', "1")
+        ##df_new = df_new.reset_index(drop=True)
+        ##for i in range(len(df_new.index)):
+        ##        print(i)
+        ##       driver.get(df_new['url'][i:i+1].values[0])
+        ##        diva=driver.find_elements(By.CSS_SELECTOR, "div.js-show-description-text")
+        ##        if (len(diva) == 0) == False:
+        ##                div = driver.find_elements(By.CSS_SELECTOR, "div.js-show-description-text")[0]
+        ##                name= div.find_element(By.TAG_NAME, "p").get_attribute("innerHTML")
+        ##                df_new.loc[i,'description'] = name
+        ##df_new.to_csv('df_23.csv')
        
-        """
         st.header("Географическое расположение ресторана")
         st.markdown("Давайте же посмотрим, где выбранный вами ресторан находится на карте. Он выделен розовым маркером.")
         st.header("Ааа, о ужас!")
@@ -175,13 +174,13 @@ with st.echo(code_location='below'):
         st.markdown("Как вы думаете, в Москве есть рестораны Мишлен?")
         st.image("https://avatars.mds.yandex.net/i?id=9287d4e35f021a596a4f404bb0ef8ab9-5875528-images-thumbs&n=13", width = 200)
         st.markdown("И вы, конечно, правы! Есть, и не один!! Пожалуйста, выберите ресторан из предложенного списка.")
-        """
-        Таблицу ниже я сделала в Jupiter. Так как API не работал в streamlit. Я не могла получить доступ к сайту. Он был заблокирован.
-        Сначала я нашла статью про рестораны Москвы, получившие звезду Мишлен. Названия щли не подряд. 
-        С помощью регулярный выражений я получила эти названия. Сделала таблицу с картинками с сайтов этих ресторанов с помощью sql.
-        Также у меня была таблица с названиями и адрессами. Я соединила эти таблицы. Далее с помощью API json нашла широту и долготу каждого ресторана.
-        И сделала новую таблицу.
-        """
+        
+        ##Таблицу ниже я сделала в Jupiter. Так как API не работал в streamlit. Я не могла получить доступ к сайту. Он был заблокирован.
+        ##Сначала я нашла статью про рестораны Москвы, получившие звезду Мишлен. Названия щли не подряд. 
+        ##С помощью регулярный выражений я получила эти названия. Сделала таблицу с картинками с сайтов этих ресторанов с помощью sql.
+        ##Также у меня была таблица с названиями и адрессами. Я соединила эти таблицы. Далее с помощью API json нашла широту и долготу каждого ресторана.
+        ##И сделала новую таблицу.
+        
         ##Код:
         ##import sqlite3
         ##conn = sqlite3.connect("database.sqlite")
