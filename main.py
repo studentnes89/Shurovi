@@ -52,24 +52,25 @@ st.pyplot(figure)
 ##Выбираем регион
 
 st.header("Рестораны Мишлен")
-
-
-Region = st.selectbox(
+st.markdown("В данном разделе вы сможете подобрать ресторан Мишлен, который подходит именно вам")
+st.markdown("Пожалуйста, выберите регион, в котором вы бы хотели испытать гастрономическое удовольствие.")
         "Region", df["region"].value_counts().index
     )
 df_selection = df[(df['region'] == Region)]
-
+st.markdown("Пожалуйста, выберите кухню, которые представлены в выбранном вами регионе.")
 Cuisine = st.selectbox(
         "Cuisine", df_selection["cuisine"].value_counts().index
     )
 df_selection = df[(df['region'] == Region) & (df['cuisine'] == Cuisine)]
 
+st.markdown("Пожалуйста, выберите средний чек на человека. Выбор будет доступен если в выбранном вами регионе с определенной кухней представлены рестораны разных ценовых категорий")
 average_check = st.radio("Select option", df_selection['price'].unique())
 st.write("Average check:", average_check)
 df_selection = df_selection[df_selection["price"] ==average_check]
 df_show = df_selection[["name", "region", "city", "price", "cuisine", "url"]]
+st.markdown("В данной таблицу представдены все рестораны, подходящие по параметрам, которые были выбраны ранее")
 df_show
-
+st.markdown"(Если в таблицу представлены несколько ресторанов, можете выбрать любой из них")
 restaurant = st.radio("Select option", df_selection['name'].unique())
 st.write("Restaurant:", restaurant)
 df_selection_2 = df_selection[df_selection["name"] ==restaurant]
