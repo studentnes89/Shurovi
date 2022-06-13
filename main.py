@@ -50,7 +50,7 @@ figure = plt.figure(
 st.pyplot(figure)
 st.markdown("А какие же ригионы наиболее дорогии и наоборот?")
 df2=df.sort_values(by=["price"])
-fig, ax = plt.subplots(figsize=(16,20))
+fig, ax = plt.subplots(figsize=(20,10))
 ax = sns.barplot(x="region", y="price", data=df2)
 plt.title('Distribution of regions by price level', fontsize=30)
 st.pyplot(fig)
