@@ -126,8 +126,8 @@ lat = rest_df['lat']
 lon = rest_df['lon']
 name = rest_df['name']
 name_2 = df_selection['name']
-lat_2 = df_selection['latitude']
-lon_2 = df_selection['longitude']
+lat_2 = df_selection['lat']
+lon_2 = df_selection['lon']
 map = folium.Map(location=[lat_2, lon_2], zoom_start = 9)
 folium.TileLayer('cartodbpositron').add_to(map)
 for lat, lon, name in zip(lat, lon, name):
