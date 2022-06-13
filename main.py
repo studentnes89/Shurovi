@@ -49,6 +49,12 @@ figure = plt.figure(
 )
 st.pyplot(figure)
 
+df2=df.sort_values(by=["price"])[::10]
+fig, ax = plt.subplots(figsize=(16,10))
+ax = sns.barplot(x="Region", y="price", data=df2)
+plt.title('Distribution of regions by price level from the smallest to the largest', fontsize=30)
+st.pyplot(fig)
+
 ##Выбираем регион
 
 st.header("Рестораны Мишлен")
@@ -269,17 +275,12 @@ st.pyplot(fig)
 
 fig, ax = plt.subplots(figsize=(30,20), dpi= 80)    
 sns.stripplot(pizza_df.diameter, pizza_df.price, size=20, ax=ax)
-plt.title('Dependence of GRP on Investment', fontsize=40)
+plt.title('Dependence of diameter on price', fontsize=40)
 plt.xticks(fontsize=5)
 plt.yticks(fontsize=30)
 ax.set_xlabel("Diameter", fontsize=30)
 ax.set_ylabel("Price", fontsize=30)
 st.pyplot(fig)
-
-st.markdown("Так, так, вроде что-то есть! Посмотрим на наиболее коррелированные переменные")
-sns.set_style("white")
-di = sns.lmplot(x="diameter", y="price", data=pizza_df)
-st.pyplot(di)
 
 
 list_tab = [(0, 5),(0, 6),(0, 7), (1, 5),(1, 6),(1, 7),(2, 5),(2, 6),(2, 7),(3, 5),(3, 6),(3, 7),(4, 5),(4, 6),(4, 7)]
