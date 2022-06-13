@@ -21,9 +21,9 @@ from networkx.algorithms import bipartite
 from scipy.sparse import csc_matrix
 
 def print_hello(name="World"):
-        st.header(f"### Привет, {name}!")
+        st.header(f" Привет, {name}!")
 st.write("Введите ваше имя")
-name = st.text_input("Your name", key="name", value="Anonymous")
+name = st.text_input("Your name", key="name", value="дорогой друг")
 a = print_hello(name)
 st.header("")
 ### вафля
