@@ -18,6 +18,7 @@ import networkx as nx
 from networkx.algorithms import bipartite
 from scipy.sparse import csc_matrix
 
+
 with st.echo(code_location='below'):
         ## Критерии:
         ## Обработка данных с помощью pandas: Использовались продвинутые возможности pandas В процессе работы, я чистила данные, соединяла тяблицы, меняла индексацию и ещу много чего делала, что можете заметить в представленном коде.
