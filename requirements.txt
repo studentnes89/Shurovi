@@ -11,3 +11,4 @@ LinearRegression
 regex
 NetworkX==2.8
 scipy
+
